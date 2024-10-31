@@ -8,7 +8,7 @@
     </head>
     <body>
         <div>
-            <a href="Controlador?accion=listar">Listar Clientes</a>
+            <a href="ControladorCliente?accion=listar">Listar Clientes</a>
             <br>
             <a href="Controlador?accion=listar">Listar Empleados</a>
         </div>
