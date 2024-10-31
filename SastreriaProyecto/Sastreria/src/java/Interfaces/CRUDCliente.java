@@ -6,7 +6,7 @@ import Entidad.Cliente;
 
 public interface CRUDCliente {
     public List listar();
-    public Cliente lis(int id);
+    public Cliente list(int id);
     public boolean add(Cliente cli);
     public boolean edit(Cliente cli);
     public boolean eliminar(int id);
