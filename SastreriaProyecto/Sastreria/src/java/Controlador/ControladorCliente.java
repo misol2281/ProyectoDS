@@ -1,6 +1,8 @@
 
 package Controlador;
 
+import Entidad.Cliente;
+import Modelo.ClienteDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +17,9 @@ public class ControladorCliente extends HttpServlet {
     String listar = "vistas/vistasCliente/listar.jsp";
     String add = "vistas/vistasCliente/add.jsp";
     String edit = "vistas/vistasCliente/edit.jsp";
+    Cliente c = new Cliente();
+    ClienteDAO cdao = new ClienteDAO();
+    int id;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -57,6 +62,37 @@ public class ControladorCliente extends HttpServlet {
         String acceso = "";
         String action = request.getParameter("accion");
         if(action.equalsIgnoreCase("listar")){
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso=add;
+        }
+        else if(action.equalsIgnoreCase("Agregar")){
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            String telefono = request.getParameter("txtTelefono");
+            c.setNombre(nombre);
+            c.setApellido(apellido);
+            c.setTelefono(telefono);
+            cdao.add(c);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("idcli", request.getParameter("id"));
+            acceso = edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            id = Integer.parseInt(request.getParameter("txtid"));
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            String telefono = request.getParameter("txtTelefono");
+            c.setId(id);
+            c.setNombre(nombre);
+            c.setApellido(apellido);
+            c.setTelefono(telefono);
+            cdao.edit(c);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            id = Integer.parseInt(request.getParameter("id"));
+            c.setId(id);
+            cdao.eliminar(id);
             acceso = listar;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
