@@ -48,7 +48,15 @@ public class ClienteDAO implements CRUDCliente{
 
     @Override
     public boolean add(Cliente cli) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql="insert into Cliente(Nombre, Apellido, Telefono) values ('"+cli.getNombre()+"','"+cli.getApellido()+"','"+cli.getTelefono()+"')";
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e){
+            
+        }
+        return false;
     }
 
     @Override
