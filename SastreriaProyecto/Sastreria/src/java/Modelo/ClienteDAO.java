@@ -43,7 +43,21 @@ public class ClienteDAO implements CRUDCliente{
 
     @Override
     public Cliente list(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql="Select * from Cliente where idCliente="+id;
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                c.setId(rs.getInt("idCliente"));
+                c.setNombre(rs.getString("Nombre"));
+                c.setApellido(rs.getString("Apellido"));
+                c.setTelefono(rs.getString("Telefono"));
+            }
+        } catch(Exception e){
+            
+        }
+        return c;
     }
 
     @Override
@@ -61,12 +75,28 @@ public class ClienteDAO implements CRUDCliente{
 
     @Override
     public boolean edit(Cliente cli) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql="update Cliente set Nombre = '"+cli.getNombre()+"', Apellido = '"+cli.getApellido()+"', Telefono = '"+cli.getTelefono()+"' where idCliente="+cli.getId();
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch(Exception e){
+            
+        }
+        return false;
     }
 
     @Override
     public boolean eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql= "delete from Cliente where idCliente="+id;
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch(Exception e){
+            
+        }
+        return false;
     }
     
 }
