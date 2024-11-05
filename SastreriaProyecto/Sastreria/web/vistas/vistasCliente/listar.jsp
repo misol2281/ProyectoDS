@@ -16,6 +16,7 @@
             <h1>Lista de Clientes</h1>
 
                 <a href="index.jsp">Regresar a Menu</a>
+                <a href="ControladorCliente?accion=add">Agregar Cliente</a>
                 <br>
                 
             <table border="1">
@@ -44,8 +45,8 @@
                         <td><%= cli.getApellido() %></td>
                         <td><%= cli.getTelefono() %></td>
                         <td>
-                            <a>Editar</a>
-                            <a>Eliminar</a>
+                            <a href="ControladorCliente?accion=editar&id=<%= cli.getId()%>">Editar</a>
+                            <a href="ControladorCliente?accion=eliminar&id=<%= cli.getId()%>">Eliminar</a>
                         </td>
                     </tr>
                     <%}%>
