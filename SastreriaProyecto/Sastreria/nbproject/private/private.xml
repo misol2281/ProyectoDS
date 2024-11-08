@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/DetalleOrden.java</file>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/TipoTrabajo.java</file>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/Orden.java</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/index.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/WEB-INF/web.xml</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/listarTipoTrabajo.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlTipoTrabajo.java</file>
         </group>
     </open-files>
 </project-private>
