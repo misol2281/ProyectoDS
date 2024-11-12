@@ -10,6 +10,7 @@
         <div>
             <a href="ControladorCliente?accion=listar">Listar Clientes</a>
             <br>
+            <a href="ControladorMaterialUsar?accion=listar">Listar MaterialUsar</a>
             <a href="Controlador?accion=listar">Listar Empleados</a>
         </div>
     </body>
