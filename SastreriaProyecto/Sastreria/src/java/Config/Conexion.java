@@ -8,7 +8,7 @@ public class Conexion {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //Class.forName("com.mysql.cj.jdbc.Driver");                                    //RECUERDEN CAMBIAR A SU USUARIO 
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Sastreria;user=sa;password=Pa55word;");
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=Sastreria;user=cris;password=12345;");
             //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ejemplobd?useTimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false","root","root");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Error: \n"+e.getClass()+"\n"+e.getMessage());
