@@ -13,15 +13,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tipo de Trabajos</title>
         <link rel="stylesheet" href="css/estilos.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div>
             <h1>Tipo de Trabajos</h1>
+            <button id="abrirAgregar">Agregar Registro</button>
             <table border="1">
                 <thead>
                     <tr>
                         <th>Tipo Trabajo</th>
                         <th>Descripción</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,6 +47,14 @@
                                 <tr>
                                     <td><%= tt.getTipoTrabajo() %></td>
                                     <td><%= tt.getDescripcion() %></td>
+                                    <td>
+                                    <button class="btn-acciones" onclick="confirmarBorrar()">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                    </button>
+                                    <button class="btn-acciones" onclick="editItem()">
+                                    <i class="fas fa-edit"></i> Modificar
+                                    </button>
+                                    </td>
                                 </tr>
                     <%
                                 }
@@ -56,4 +68,5 @@
             </table>
         </div>
     </body>
-</html>
+    <script src="script/scriptTipoTrabajo/TipoTrabajo.js"></script>
+   </html>

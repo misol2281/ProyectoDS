@@ -13,5 +13,6 @@
     </head>
     <body>
         <a href="CtrlTipoTrabajo?accion=listar">Listar Tipos de Trabajos</a>
+        <a href="CtrlTipoTrabajo?accion=Agregar">Agregar Tipos de Trabajos</a>
     </body>
 </html>

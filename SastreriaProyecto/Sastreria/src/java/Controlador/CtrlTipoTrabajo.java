@@ -4,6 +4,8 @@
  */
 package Controlador;
 
+import Entidad.TipoTrabajo;
+import Modelo.DAOTipoTrabajo;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,8 +22,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "CtrlTipoTrabajo", urlPatterns = {"/CtrlTipoTrabajo"})
 public class CtrlTipoTrabajo extends HttpServlet {
 
-    String listar = "vistas/listarTipoTrabajo.jsp";
-    
+    String listar = "vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp";
+    String agregar = "vistas/vistaTipoTrabajo/agregarTipoTrabajo.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -56,6 +58,9 @@ public class CtrlTipoTrabajo extends HttpServlet {
         if(action.equalsIgnoreCase("listar")){
             acceso=listar;
         }
+        if(action.equalsIgnoreCase("agregar")){
+            acceso=agregar;
+        }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);
     }
@@ -72,13 +77,23 @@ public class CtrlTipoTrabajo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String tipoTrabajo = request.getParameter("TipoTrabajo");
+        String descripcion = request.getParameter("Descripcion");
+        
+        DAOTipoTrabajo dao = new DAOTipoTrabajo();
+        TipoTrabajo tt = new TipoTrabajo();
+        tt.setTipoTrabajo(tipoTrabajo);
+        tt.setDescripcion(descripcion);
+        boolean r = dao.AgregarTipoTrabajo(tt);
+        if(r){
+            response.getWriter().write("Guardado Exitosamente");
+        }
+        else{
+            response.getWriter().write("Error al guardar" + tt.getTipoTrabajo() + tt.getDescripcion());
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

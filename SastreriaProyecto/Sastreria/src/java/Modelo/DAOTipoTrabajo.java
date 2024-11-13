@@ -40,8 +40,22 @@ public class DAOTipoTrabajo implements InterfaceTipoTrabajo{
     }
 
     @Override
-    public boolean AgregarTipoTrabajo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean AgregarTipoTrabajo(TipoTrabajo Tt) {
+        String sql = "insert into TipoTrabajo(TipoTrabajo, Descripcion) values (?,?)";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, Tt.getTipoTrabajo());
+            ps.setString(2, Tt.getDescripcion());
+            int Agregado = ps.executeUpdate();
+            if(Agregado>0){
+            return true;
+            }
+        }
+        catch (Exception e){
+            System.out.println("Error al insertar TipoTrabajo" + e.getMessage());
+        }
+        return false;
+        
     }
 
     @Override
