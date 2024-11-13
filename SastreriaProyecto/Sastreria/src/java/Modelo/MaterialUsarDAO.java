@@ -96,7 +96,15 @@ public class MaterialUsarDAO implements CRUDMaterialUsar{
 
     @Override
     public boolean eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "delete from MaterialUsar where idMaterialUsar="+id;
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }catch (Exception e){
+            
+        }
+        return false;
     }
     
 }
