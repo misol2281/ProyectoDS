@@ -12,11 +12,12 @@ public class Empleados {
     char Genero;
     String EstadoCivil;
     String Correo;
+    int idCargo;
 
     public Empleados() {
     }
 
-    public Empleados(String Nombre, String Apellido, String DUI, Date FechaNacimiento, String Telefono, char Genero, String EstadoCivil, String Correo) {
+    public Empleados(String Nombre, String Apellido, String DUI, Date FechaNacimiento, String Telefono, char Genero, String EstadoCivil, String Correo, int idCargo) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.DUI = DUI;
@@ -25,7 +26,9 @@ public class Empleados {
         this.Genero = Genero;
         this.EstadoCivil = EstadoCivil;
         this.Correo = Correo;
+        this.idCargo = idCargo;
     }
+
 
     public int getId() {
         return id;
@@ -97,6 +100,14 @@ public class Empleados {
 
     public void setCorreo(String Correo) {
         this.Correo = Correo;
+    }
+
+    public int getIdCargo() {
+        return idCargo;
+    }
+
+    public void setIdCargo(int idCargo) {
+        this.idCargo = idCargo;
     }
     
     
