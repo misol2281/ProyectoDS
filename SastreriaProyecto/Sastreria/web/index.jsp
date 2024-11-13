@@ -1,17 +1,17 @@
-<%-- 
-    Document   : index
-    Created on : 29 oct 2024, 3:30:28 p. m.
-    Author     : Ada
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>MENU</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>
+            <a href="ControladorCliente?accion=listar">Listar Clientes</a>
+            <br>
+            <a href="ControladorMaterialUsar?accion=listar">Listar MaterialUsar</a>
+            <a href="Controlador?accion=listar">Listar Empleados</a>
+        </div>
     </body>
 </html>
