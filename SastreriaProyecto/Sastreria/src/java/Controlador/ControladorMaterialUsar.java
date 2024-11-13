@@ -107,6 +107,11 @@ public class ControladorMaterialUsar extends HttpServlet {
             mu.setSubTotal(SubTotal);
             mudao.edit(mu);
             acceso = listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            id = Integer.parseInt(request.getParameter("id"));
+            mu.setId(id);
+            mudao.eliminar(id);
+            acceso = listar;
         }
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);
