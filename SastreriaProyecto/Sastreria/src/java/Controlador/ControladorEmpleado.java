@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.EmpleadoDAO;
 import Entidad.Empleados;
 import jakarta.servlet.RequestDispatcher;
+import java.sql.Date;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -65,6 +66,59 @@ public class ControladorEmpleado extends HttpServlet {
         String acceso = "";
         String action = request.getParameter("accion");
         if(action.equalsIgnoreCase("listar")){
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso = add;
+        }else if(action.equalsIgnoreCase("Agregar")){
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            String dui = request.getParameter("txtdui");
+            Date fechanaci = Date.valueOf(request.getParameter("txtfnaci"));
+            String telefono = request.getParameter("txtTelefono");
+            char genero = request.getParameter("genero").charAt(0);
+            String estadocivil = request.getParameter("txtEstadoCivil");
+            String correo = request.getParameter("txtCorreo");
+            int idcargo = Integer.parseInt(request.getParameter("txtCargo"));
+            e.setNombre(nombre);
+            e.setApellido(apellido);
+            e.setDUI(dui);
+            e.setFechaNacimiento(fechanaci);
+            e.setTelefono(telefono);
+            e.setGenero(genero);
+            e.setEstadoCivil(estadocivil);
+            e.setCorreo(correo);
+            e.setIdCargo(idcargo);
+            edao.add(e);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("idemp", request.getParameter("id"));
+            acceso = edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            id = Integer.parseInt(request.getParameter("txtid"));
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            String dui = request.getParameter("txtdui");
+            Date fechanaci = Date.valueOf(request.getParameter("txtfnaci"));
+            String telefono = request.getParameter("txtTelefono");
+            char genero = request.getParameter("genero").charAt(0);
+            String estadocivil = request.getParameter("txtEstadoCivil");
+            String correo = request.getParameter("txtCorreo");
+            int idcargo = Integer.parseInt(request.getParameter("txtCargo"));
+            e.setNombre(nombre);
+            e.setApellido(apellido);
+            e.setDUI(dui);
+            e.setFechaNacimiento(fechanaci);
+            e.setTelefono(telefono);
+            e.setGenero(genero);
+            e.setEstadoCivil(estadocivil);
+            e.setCorreo(correo);
+            e.setIdCargo(idcargo);
+            edao.edit(e);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            id = Integer.parseInt(request.getParameter("id"));
+            e.setId(id);
+            edao.eliminar(id);
             acceso = listar;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
