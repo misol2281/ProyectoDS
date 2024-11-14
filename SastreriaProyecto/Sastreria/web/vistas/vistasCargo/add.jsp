@@ -5,9 +5,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>AgregarCargo</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>
+            <h1>Agregar Cargo</h1>
+            <form action="ControladorCargo">
+                Cargo:<br>
+                <input type="text" name="txtCargo"> <br>
+                
+                <input type="submit" name="accion" value="Agregar">
+            </form>
+        </div>
     </body>
 </html>
