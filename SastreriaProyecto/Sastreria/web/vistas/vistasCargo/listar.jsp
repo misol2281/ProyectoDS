@@ -14,6 +14,7 @@
             <h1>Listar Cargos</h1>
             
             <a href="index.jsp">Regresar a Menu</a>
+            <a href="ControladorCargo?accion=add">Agregar Cargo</a>
             <table border="1">
                 <thead>
                     <tr>
@@ -22,15 +23,25 @@
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
+                <%
+                    CargoDAO cdao = new CargoDAO();
+                    List<Cargo> list = cdao.listar();
+                    Iterator<Cargo>iter = list.iterator();
+                    Cargo car = null;
+                    while(iter.hasNext()){
+                    car = iter.next();
+                    
+                %>
                 <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td><%= car.getId() %></td>
+                        <td><%= car.getCargo() %></td>
                         <td>
-                            <a>Editar</a>
-                            <a>Eliminar</a>
+                            <a href="ControladorCargo?accion=editar&id=<%= car.getId() %>">Editar</a>
+                            <a href="ControladorCargo?accion=eliminar&id=<%= car.getId() %>">Eliminar</a>
                         </td>
                     </tr>
+                    <%}%>
                 </tbody>
             </table>
         </div>
