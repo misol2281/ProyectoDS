@@ -49,22 +49,66 @@ public class EmpleadoDAO implements CRUDEmpleado {
 
     @Override
     public Empleados list(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "select * from Empleado where idEmpleado="+id;
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                e.setId(rs.getInt("idEmpleado"));
+                e.setNombre(rs.getString("Nombre"));
+                e.setApellido(rs.getString("Apellido"));
+                e.setDUI(rs.getString("dui"));
+                e.setFechaNacimiento(rs.getDate("FechaNacimiento"));
+                e.setTelefono(rs.getString("Telefono"));
+                e.setGenero(rs.getString("Genero").charAt(0));
+                e.setEstadoCivil(rs.getString("EstadoCivil"));
+                e.setCorreo(rs.getString("Correo"));
+                e.setIdCargo(rs.getInt("idCargo"));
+            }
+        }catch(Exception e){
+            
+        }
+        return e;     
     }
 
     @Override
     public boolean add(Empleados emp) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       String sql = "insert into Empleado(Nombre, Apellido, dui, FechaNacimiento, Telefono, Genero, EstadoCivil, Correo, idCargo) values ('"+emp.getNombre()+"', '"+emp.getApellido()+"', '"+emp.getDUI()+"', '"+emp.getFechaNacimiento()+"', '"+emp.getTelefono()+"', '"+emp.getGenero()+"', '"+emp.getEstadoCivil()+"', '"+emp.getCorreo()+"', '"+emp.getIdCargo()+"')"; 
+       try{
+           con = cn.getConnection();
+           ps = con.prepareStatement(sql);
+           ps.executeUpdate();
+       }catch (Exception e){
+            System.out.println("Error al insertar en la base de datos: " + e.getMessage());
+       }
+       return false;
     }
 
     @Override
     public boolean edit(Empleados emp) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       String sql = "update Empleado set Nombre = '"+emp.getNombre()+"', Apellido = '"+emp.getApellido()+"', dui = '"+emp.getDUI()+"', FechaNacimiento = '"+emp.getFechaNacimiento()+"', Telefono = '"+emp.getTelefono()+"', Genero = '"+emp.getGenero()+"', EstadoCivil = '"+emp.getEstadoCivil()+"', Correo = '"+emp.getCorreo()+"', idCargo = '"+emp.getIdCargo()+"' where idEmpleado="+emp.getId();
+       try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch(Exception e){
+            System.out.println("Error al actualizar en la base de datos: " + e.getMessage());
+        }
+        return false;
     }
 
     @Override
     public boolean eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "delete from Empleado where idEmpleado="+id;
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch(Exception e){
+            
+        }
+        return false;
     }
     
 }

@@ -12,6 +12,10 @@
         <servlet-name>ControladorEmpleado</servlet-name>
         <servlet-class>Controlador.ControladorEmpleado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorCargo</servlet-name>
+        <servlet-class>Controlador.ControladorCargo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorCliente</servlet-name>
         <url-pattern>/ControladorCliente</url-pattern>
@@ -23,5 +27,9 @@
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/ControladorEmpleado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCargo</servlet-name>
+        <url-pattern>/ControladorCargo</url-pattern>
     </servlet-mapping>
 </web-app>

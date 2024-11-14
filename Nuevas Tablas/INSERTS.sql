@@ -31,3 +31,9 @@ INSERT INTO Opciones (Opcion) VALUES
 	('Gestionar AsignaciondeRoles'),
 	('Gestionar Usuarios'),
 	('Gestionar Opciones');
+
+INSERT INTO AsignacionRolesOpciones (idRol, idOpcion) VALUES
+	('');
+
+INSERT INTO Usuarios (Usuario, Contra, idRol, idEmpleado) VALUES
+	('');

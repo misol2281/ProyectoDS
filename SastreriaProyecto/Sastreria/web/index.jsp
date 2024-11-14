@@ -8,10 +8,13 @@
     </head>
     <body>
         <div>
-            <a href="ControladorCliente?accion=listar">Listar Clientes</a>
+            <a href="ControladorCliente?accion=listar">Lista de Clientes</a>
             <br>
-            <a href="ControladorMaterialUsar?accion=listar">Listar MaterialUsar</a>
-            <a href="ControladorEmpleado?accion=listar">Listar Empleados</a>
+            <a href="ControladorMaterialUsar?accion=listar">Lista de Material a Usar</a>
+            <br>
+            <a href="ControladorEmpleado?accion=listar">Lista de Empleados</a>
+            <br>
+            <a href="ControladorCargo?accion=listar">Lista de Cargos</a>
         </div>
     </body>
 </html>

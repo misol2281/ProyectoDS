@@ -14,6 +14,7 @@
             <h1>Lista de Empleados</h1>
             
             <a href="index.jsp">Regresar a Menu</a>
+            <a href="ControladorEmpleado?accion=add">Agregar Empleado</a>
             <br> 
             
             <table border="1">
@@ -54,8 +55,8 @@
                         <td><%= emp.getCorreo() %></td>
                         <td><%= emp.getIdCargo() %></td>
                         <td>
-                            <a>Editar</a>
-                            <a>Eliminar</a>
+                            <a href="ControladorEmpleado?accion=editar&id=<%= emp.getId() %>">Editar</a>
+                            <a href="ControladorEmpleado?accion=eliminar&id=<%= emp.getId() %>">Eliminar</a>
                         </td>
                     </tr>
                     <%}%>
