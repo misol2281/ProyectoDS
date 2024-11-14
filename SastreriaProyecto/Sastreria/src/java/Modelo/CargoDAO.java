@@ -20,7 +20,11 @@ public class CargoDAO implements CRUDCargo {
 
     @Override
     public List listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Cargo>list = new ArrayList<>();
+        String sql = "Slect * from Cargos";
+        try{
+            
+        }catch (Exception)
     }
 
     @Override
