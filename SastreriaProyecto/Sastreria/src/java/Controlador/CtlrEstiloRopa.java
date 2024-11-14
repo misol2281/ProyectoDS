@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package Controlador;
 
@@ -76,3 +77,18 @@ public class CtlrEstiloRopa extends HttpServlet {
     }// </editor-fold>
 
 }
+=======
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Controlador;
+
+/**
+ *
+ * @author Eduardo Morales
+ */
+public class CtlrEstiloRopa {
+    
+}
+>>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9

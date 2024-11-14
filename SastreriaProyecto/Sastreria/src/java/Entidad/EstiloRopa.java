@@ -9,6 +9,7 @@ package Entidad;
  * @author Eduardo Morales
  */
 public class EstiloRopa {
+<<<<<<< HEAD
     String EstiloRopa;
     String Descripcion;
 
@@ -39,3 +40,7 @@ public class EstiloRopa {
 }
     
 
+=======
+    
+}
+>>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9

@@ -5,13 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@page import="java.util.List"%>
 <%@page import="Modelo.DAOEstiloRopa"%>
 <%@page import="Entidad.EstiloRopa"%>
+=======
+>>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
         <title>Estilo de Ropa</title>
     </head>
     <body>
@@ -59,3 +63,11 @@
         </table>
     </body>
 </html>
+=======
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+</html>
+>>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9

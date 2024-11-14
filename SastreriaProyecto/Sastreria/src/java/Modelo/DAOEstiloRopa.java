@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+<<<<<<< HEAD
 import Config.Conexion;
 import Entidad.EstiloRopa;
 import Interfaces.InterfaceEstiloRopa;
@@ -12,10 +13,13 @@ import java.sql.*;
 import java.util.ArrayList;
 
 
+=======
+>>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9
 /**
  *
  * @author Eduardo Morales
  */
+<<<<<<< HEAD
 public class DAOEstiloRopa implements InterfaceEstiloRopa {
 
     Conexion conexion = new Conexion();
@@ -57,5 +61,8 @@ public class DAOEstiloRopa implements InterfaceEstiloRopa {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+=======
+public class DAOEstiloRopa {
+>>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9
     
 }
