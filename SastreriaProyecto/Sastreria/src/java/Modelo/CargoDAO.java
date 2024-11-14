@@ -23,7 +23,7 @@ public class CargoDAO implements CRUDCargo {
         ArrayList<Cargo>list = new ArrayList<>();
         String sql = "Slect * from Cargos";
         try{
-            
+            con = cn.getConnection();
         }catch (Exception e){
             
         }
