@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/css/estiloListar.css</file>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/css/estiloAgregar.css</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/index.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/script/scriptTipoTrabajo/TipoTrabajo.js</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/agregarTipoTrabajo.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/TipoTrabajo.java</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlTipoTrabajo.java</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Config/Conexion.java</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Modelo/DAOTipoTrabajo.java</file>
         </group>
     </open-files>

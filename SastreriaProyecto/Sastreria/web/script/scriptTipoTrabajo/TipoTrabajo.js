@@ -1,4 +1,4 @@
-
+ff
 // Esperar a que el documento esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
     var abrir = document.getElementById("abrirAgregar");
