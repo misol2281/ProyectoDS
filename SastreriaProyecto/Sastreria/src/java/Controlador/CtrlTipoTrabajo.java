@@ -61,9 +61,24 @@ public class CtrlTipoTrabajo extends HttpServlet {
         if(action.equalsIgnoreCase("agregar")){
             acceso=agregar;
         }
-        RequestDispatcher vista = request.getRequestDispatcher(acceso);
-        vista.forward(request, response);
-    }
+        else if (action.equalsIgnoreCase("Eliminar")) {
+            String tt = request.getParameter("eliminar");
+            System.out.println("Hola" + tt);
+            if (tt != null && !tt.isEmpty()) {
+                DAOTipoTrabajo dao = new DAOTipoTrabajo();
+                boolean eliminado = dao.EliminarTipoTrabajo(tt);
+
+                if (eliminado) {
+                    System.out.println("Dato eliminado correctamente: " + tt);
+                } else {
+                    System.out.println("No se pudo eliminar el dato: " + tt);
+                }
+            }
+            acceso = listar;
+        }
+            RequestDispatcher vista = request.getRequestDispatcher(acceso);
+            vista.forward(request, response);
+        }
 
     /**
      * Handles the HTTP <code>POST</code> method.

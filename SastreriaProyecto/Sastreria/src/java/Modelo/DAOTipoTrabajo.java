@@ -69,8 +69,17 @@ public class DAOTipoTrabajo implements InterfaceTipoTrabajo{
     }
 
     @Override
-    public boolean EliminarTipoTrabajo(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public boolean EliminarTipoTrabajo(String tt) {
+        String sql = "delete from TipoTrabajo where TipoTrabajo =" + "'" + tt + "';";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }
+        catch(SQLException e){
+            System.out.println("Error al eliminar" + e.getMessage());
+            }
+        return false;
+        }
+    
     
 }

@@ -16,5 +16,5 @@ public interface InterfaceTipoTrabajo {
     boolean AgregarTipoTrabajo(TipoTrabajo Tt);
     boolean BuscarPorId(int id);
     boolean EditarTipoTrabajo(int id);
-    boolean EliminarTipoTrabajo(int id);
+    boolean EliminarTipoTrabajo(String tt);
 }
