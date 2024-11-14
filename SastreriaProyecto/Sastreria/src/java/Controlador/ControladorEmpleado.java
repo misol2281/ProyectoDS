@@ -104,6 +104,7 @@ public class ControladorEmpleado extends HttpServlet {
             String estadocivil = request.getParameter("txtEstadoCivil");
             String correo = request.getParameter("txtCorreo");
             int idcargo = Integer.parseInt(request.getParameter("txtCargo"));
+            e.setId(id);
             e.setNombre(nombre);
             e.setApellido(apellido);
             e.setDUI(dui);
