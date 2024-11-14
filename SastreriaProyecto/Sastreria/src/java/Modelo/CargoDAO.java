@@ -24,7 +24,10 @@ public class CargoDAO implements CRUDCargo {
         String sql = "Slect * from Cargos";
         try{
             
-        }catch (Exception)
+        }catch (Exception e){
+            
+        }
+        return list;
     }
 
     @Override
