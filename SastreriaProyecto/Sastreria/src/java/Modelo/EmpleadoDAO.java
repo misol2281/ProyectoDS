@@ -93,7 +93,7 @@ public class EmpleadoDAO implements CRUDEmpleado {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch(Exception e){
-            
+            System.out.println("Error al actualizar en la base de datos: " + e.getMessage());
         }
         return false;
     }
