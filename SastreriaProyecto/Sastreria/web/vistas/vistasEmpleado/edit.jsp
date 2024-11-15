@@ -7,10 +7,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>EditarEmpleado</title>
     </head>
     <body>
-        <div>
+        <div class="container">
             <%
                 EmpleadoDAO edao = new EmpleadoDAO();
                 int id = Integer.parseInt((String)request.getAttribute("idemp"));
