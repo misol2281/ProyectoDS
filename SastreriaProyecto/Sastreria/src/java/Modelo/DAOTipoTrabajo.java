@@ -28,6 +28,7 @@ public class DAOTipoTrabajo implements InterfaceTipoTrabajo{
             rs = ps.executeQuery();
             while(rs.next()){
                 TipoTrabajo tt = new TipoTrabajo();
+                tt.setId(rs.getInt("idTipoTrabajo"));
                 tt.setTipoTrabajo(rs.getString("TipoTrabajo"));
                 tt.setDescripcion(rs.getString("Descripcion"));
                 lstTipoTrabajo.add(tt);
@@ -59,18 +60,44 @@ public class DAOTipoTrabajo implements InterfaceTipoTrabajo{
     }
 
     @Override
-    public boolean BuscarPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public TipoTrabajo BuscarPorId(int id) {
+        String sql = "select * from TipoTrabajo where idTipoTrabajo=" + id;
+        TipoTrabajo tt = new TipoTrabajo();
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                tt.setId(rs.getInt("idTipoTrabajo"));
+                tt.setTipoTrabajo(rs.getString("TipoTrabajo"));
+                tt.setDescripcion(rs.getString("Descripcion"));
+            }
+        }
+        catch(Exception e){
+            System.out.println("Error al buscar el registro" + e.getMessage());
+        }
+        return tt;
     }
 
     @Override
-    public boolean EditarTipoTrabajo(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean EditarTipoTrabajo(TipoTrabajo Tt) {
+        String sql = "update TipoTrabajo set TipoTrabajo = '" +Tt.getTipoTrabajo() + "', Descripcion = '"
+        +Tt.getDescripcion() + "' where idTipoTrabajo = "+Tt.getId();
+        try{
+            ps = con.prepareStatement(sql);
+            int Editado = ps.executeUpdate();
+            if(Editado>0){
+            return true;
+            }
+        }
+        catch(Exception e){
+            System.out.println("Error al actualizar" + e.getMessage());
+        }
+        return false;
     }
 
     @Override
-    public boolean EliminarTipoTrabajo(String tt) {
-        String sql = "delete from TipoTrabajo where TipoTrabajo =" + "'" + tt + "';";
+    public boolean EliminarTipoTrabajo(int id) {
+        String sql = "delete from TipoTrabajo where idTipoTrabajo =" + id;
         try{
             ps = con.prepareStatement(sql);
             ps.executeUpdate();

@@ -14,7 +14,7 @@ import java.util.List;
 public interface InterfaceTipoTrabajo {
     List listarTipoTrabajos();
     boolean AgregarTipoTrabajo(TipoTrabajo Tt);
-    boolean BuscarPorId(int id);
-    boolean EditarTipoTrabajo(int id);
-    boolean EliminarTipoTrabajo(String tt);
+    TipoTrabajo BuscarPorId(int id);
+    boolean EditarTipoTrabajo(TipoTrabajo Tt);
+    boolean EliminarTipoTrabajo(int id);
 }

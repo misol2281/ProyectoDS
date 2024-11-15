@@ -24,6 +24,7 @@ public class CtrlTipoTrabajo extends HttpServlet {
 
     String listar = "vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp";
     String agregar = "vistas/vistaTipoTrabajo/agregarTipoTrabajo.jsp";
+    String editar = "vistas/vistaTipoTrabajo/editarTipoTrabajo.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -58,21 +59,63 @@ public class CtrlTipoTrabajo extends HttpServlet {
         if(action.equalsIgnoreCase("listar")){
             acceso=listar;
         }
-        if(action.equalsIgnoreCase("agregar")){
+        else if(action.equalsIgnoreCase("agregar")){
             acceso=agregar;
         }
         else if (action.equalsIgnoreCase("Eliminar")) {
-            String tt = request.getParameter("eliminar");
-            System.out.println("Hola" + tt);
-            if (tt != null && !tt.isEmpty()) {
-                DAOTipoTrabajo dao = new DAOTipoTrabajo();
-                boolean eliminado = dao.EliminarTipoTrabajo(tt);
+            int id = 0;
+            try {
+                id = Integer.parseInt(request.getParameter("id"));
+                if (id > 0) {
+                    DAOTipoTrabajo dao = new DAOTipoTrabajo();
+                    boolean eliminado = dao.EliminarTipoTrabajo(id);
 
-                if (eliminado) {
-                    System.out.println("Dato eliminado correctamente: " + tt);
+                    if (eliminado) {
+                        System.out.println("Dato eliminado correctamente.");
+                    } else {
+                        System.out.println("No se pudo eliminar el dato.");
+                    }
                 } else {
-                    System.out.println("No se pudo eliminar el dato: " + tt);
+                    System.out.println("El ID debe ser mayor que 0.");
                 }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: El ID proporcionado no es un número válido.");
+            }
+
+            acceso = listar;
+        }
+        else if(action.equalsIgnoreCase("Enviar")){
+            try{
+                int id = Integer.parseInt(request.getParameter("id"));
+                DAOTipoTrabajo dao = new DAOTipoTrabajo();
+                TipoTrabajo tt = new TipoTrabajo();
+                tt = dao.BuscarPorId(id);
+                if(tt!=null){
+                   request.setAttribute("id", tt.getId()); 
+                   request.setAttribute("TipoTrabajo", tt.getTipoTrabajo());
+                   request.setAttribute("Descripcion", tt.getDescripcion());
+                   acceso = editar; 
+                }
+            }
+            catch(Exception e){
+                System.out.println("Error al enviar registro");
+            }
+        }
+        
+        else if (action.equalsIgnoreCase("Editar")){
+            try{
+                int id = Integer.parseInt(request.getParameter("id"));
+                String tt = request.getParameter("tt");
+                String dc = request.getParameter("dc");
+                TipoTrabajo TT = new TipoTrabajo();
+                TT.setId(id);
+                TT.setTipoTrabajo(tt);
+                TT.setDescripcion(dc);
+                DAOTipoTrabajo dao = new DAOTipoTrabajo();
+                dao.EditarTipoTrabajo(TT);
+            }
+            catch(Exception e){
+                System.out.println("Error al actualizar" + e.getMessage());
             }
             acceso = listar;
         }
@@ -100,12 +143,13 @@ public class CtrlTipoTrabajo extends HttpServlet {
         tt.setTipoTrabajo(tipoTrabajo);
         tt.setDescripcion(descripcion);
         boolean r = dao.AgregarTipoTrabajo(tt);
-        if(r){
-            response.getWriter().write("Guardado Exitosamente");
+        response.sendRedirect("vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp");
+        if (r) {
+        response.sendRedirect("vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp");
+        } else {
+        request.setAttribute("mensaje", "Error al guardar: " + tt.getTipoTrabajo() + ", " + tt.getDescripcion());
         }
-        else{
-            response.getWriter().write("Error al guardar" + tt.getTipoTrabajo() + tt.getDescripcion());
-        }
+            
     }
 
     

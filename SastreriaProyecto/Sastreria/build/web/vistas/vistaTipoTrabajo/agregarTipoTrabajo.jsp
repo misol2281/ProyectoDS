@@ -28,5 +28,6 @@
         </div>
     </div>
 </body>
+<script src="script/scriptTipoTrabajo/TipoTrabajo.js"></script>
 </html>
 

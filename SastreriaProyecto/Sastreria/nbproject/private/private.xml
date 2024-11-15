@@ -5,8 +5,13 @@
         <group>
             <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp</file>
             <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlTipoTrabajo.java</file>
+            <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/web/index.jsp</file>
+            <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/agregarTipoTrabajo.jsp</file>
+            <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/src/java/Interfaces/InterfaceTipoTrabajo.java</file>
             <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/src/java/Modelo/DAOTipoTrabajo.java</file>
+            <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/editarTipoTrabajo.jsp</file>
             <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/web/script/scriptTipoTrabajo/TipoTrabajo.js</file>
+            <file>file:/C:/Users/carr0/Desktop/RamaCristian/SastreriaProyecto/Sastreria/web/css/estiloEditar.css</file>
         </group>
     </open-files>
 </project-private>
