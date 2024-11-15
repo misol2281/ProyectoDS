@@ -137,7 +137,9 @@ public class CtrlTipoTrabajo extends HttpServlet {
         processRequest(request, response);
         String tipoTrabajo = request.getParameter("TipoTrabajo");
         String descripcion = request.getParameter("Descripcion");
-        
+        if (tipoTrabajo == null || descripcion == null) {
+            System.out.println("Recibo datos null");
+        }
         DAOTipoTrabajo dao = new DAOTipoTrabajo();
         TipoTrabajo tt = new TipoTrabajo();
         tt.setTipoTrabajo(tipoTrabajo);
@@ -145,9 +147,10 @@ public class CtrlTipoTrabajo extends HttpServlet {
         boolean r = dao.AgregarTipoTrabajo(tt);
         response.sendRedirect("vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp");
         if (r) {
-        response.sendRedirect("vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp");
+            response.getWriter().write("Registro exitoso");
+            response.sendRedirect(listar);
         } else {
-        request.setAttribute("mensaje", "Error al guardar: " + tt.getTipoTrabajo() + ", " + tt.getDescripcion());
+            response.getWriter().write("Error al guardar el registro");  // Escribe una respuesta de error
         }
             
     }

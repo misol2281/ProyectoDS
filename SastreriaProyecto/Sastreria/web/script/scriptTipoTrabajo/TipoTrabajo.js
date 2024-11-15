@@ -1,38 +1,34 @@
-// Esperar a que el documento esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
     var abrir = document.getElementById("abrirAgregar");
 
-    // Agregar el evento de clic al botón
     abrir.addEventListener("click", function() {
         // Abrir otro JSP en una nueva ventana
         const pestanaAbrir = window.open("vistas/vistaTipoTrabajo/agregarTipoTrabajo.jsp", "_blank", "width=800,height=600");
 
         pestanaAbrir.onload = function () {
-            var agregar = pestanaAbrir.document.getElementById("agregar"); // Contenedor dentro de la ventana emergente
             var cerrarAgregar = pestanaAbrir.document.getElementById("cerrarAgregar"); // Botón cerrar en la ventana emergente
+            var agregarRegistro = pestanaAbrir.document.getElementById("btnAgregar"); // Botón de agregar registro
 
-            // Configurar el evento de clic para cerrar la ventana emergente
+            // Evento para cerrar la ventana emergente
             cerrarAgregar.onclick = function() {
-                if (window.opener) { 
-                    window.opener.location.reload(); // Recargar la página principal
-                }
-                pestanaAbrir.close(); // Cerrar la ventana emergente
+                pestanaAbrir.close();
+                window.location.reload(); // Recargar la página principal después de cerrar
             };
-
-            // Detectar el clic fuera del contenedor para cerrar la ventana emergente
-            pestanaAbrir.document.body.addEventListener("click", function(event) {
-                if (!agregar.contains(event.target)) { // Si el clic es fuera del contenedor
-                    if (window.opener) { 
-                        window.opener.location.reload(); // Recargar la página principal
-                    }
-                    pestanaAbrir.close(); // Cerrar la ventana emergente
-                }
-            });
+            
+            // Enviar los datos del formulario al controlador cuando se hace clic en "Agregar"
+            agregarRegistro.onclick = function() {
+                window.onbeforeunload = function(event) {
+                var message = "¿Estás seguro de que deseas salir de esta página?";
+                event.returnValue = message;  
+        }; 
+           
+            };
+            
         };
     });
 });
 
-// Funciones adicionales
+// Funciones adicionales (como confirmar borrado, editar, etc.)
 function confirmarBorrar(id) {
     if (confirm("¿Desea eliminar este registro?")) {
         window.location.href = "CtrlTipoTrabajo?accion=Eliminar&id=" + id;
@@ -53,3 +49,7 @@ function editarRegistro(id) {
 function mostrarLista() {
     window.location.href = "vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp";
 }
+function datosEnviados(){
+                console.log("hola");
+                
+            }
