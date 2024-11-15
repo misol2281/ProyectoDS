@@ -15,6 +15,8 @@
             <a href="ControladorEmpleado?accion=listar">Lista de Empleados</a>
             <br>
             <a href="ControladorCargo?accion=listar">Lista de Cargos</a>
+            <br>
+            <a href="ControladorRoles?accion=listar">Lista de Roles</a>
         </div>
     </body>
 </html>
