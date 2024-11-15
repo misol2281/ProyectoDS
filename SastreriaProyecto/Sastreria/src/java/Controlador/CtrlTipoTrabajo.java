@@ -61,9 +61,31 @@ public class CtrlTipoTrabajo extends HttpServlet {
         if(action.equalsIgnoreCase("agregar")){
             acceso=agregar;
         }
-        RequestDispatcher vista = request.getRequestDispatcher(acceso);
-        vista.forward(request, response);
-    }
+        else if (action.equalsIgnoreCase("Eliminar")) {
+            int id = 0;
+            try {
+                id = Integer.parseInt(request.getParameter("id"));
+                if (id > 0) {
+                    DAOTipoTrabajo dao = new DAOTipoTrabajo();
+                    boolean eliminado = dao.EliminarTipoTrabajo(id);
+
+                    if (eliminado) {
+                        System.out.println("Dato eliminado correctamente.");
+                    } else {
+                        System.out.println("No se pudo eliminar el dato.");
+                    }
+                } else {
+                    System.out.println("El ID debe ser mayor que 0.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: El ID proporcionado no es un número válido.");
+            }
+
+            acceso = listar;
+        }
+            RequestDispatcher vista = request.getRequestDispatcher(acceso);
+            vista.forward(request, response);
+        }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -87,6 +109,8 @@ public class CtrlTipoTrabajo extends HttpServlet {
         boolean r = dao.AgregarTipoTrabajo(tt);
         if(r){
             response.getWriter().write("Guardado Exitosamente");
+            RequestDispatcher vista = request.getRequestDispatcher(listar);
+            vista.forward(request, response);
         }
         else{
             response.getWriter().write("Error al guardar" + tt.getTipoTrabajo() + tt.getDescripcion());

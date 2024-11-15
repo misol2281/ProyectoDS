@@ -9,15 +9,25 @@ package Entidad;
  * @author Cristian
  */
 public class TipoTrabajo {
+    private int id;
     private String tipoTrabajo;
     private String descripcion;
 
     public TipoTrabajo() {
     }
 
-    public TipoTrabajo(String tipoTrabajo, String descripcion) {
+    public TipoTrabajo(int id, String tipoTrabajo, String descripcion) {
+        this.id = id;
         this.tipoTrabajo = tipoTrabajo;
         this.descripcion = descripcion;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTipoTrabajo() {

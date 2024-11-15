@@ -48,8 +48,8 @@
                                     <td><%= tt.getTipoTrabajo() %></td>
                                     <td><%= tt.getDescripcion() %></td>
                                     <td>
-                                    <button class="btn-acciones eliminar" onclick="confirmarBorrar()">
-                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                    <button class="btn-acciones eliminar" onclick="confirmarBorrar('<%= tt.getId()%>')">
+                                    <i class="fas fa-trash-alt" id="eliminar"></i> Eliminar
                                     </button>
                                     <button class="btn-acciones modificar" onclick="editItem()">
                                     <i class="fas fa-edit"></i> Modificar

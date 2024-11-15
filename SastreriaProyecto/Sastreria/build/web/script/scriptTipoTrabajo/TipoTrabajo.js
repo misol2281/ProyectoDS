@@ -1,4 +1,4 @@
-ff
+
 // Esperar a que el documento esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
     var abrir = document.getElementById("abrirAgregar");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var cerrarAgregar = document.getElementById("cerrarAgregar");
         cerrarAgregar.onclick = function() {
             agregar.style.display = "none";
-        }
+        };
         window.onclick = function(event) {
             if (event.target === agregar) {
                 agregar.style.display = "none";
@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
         };
                 });
 });
-function confirmarBorrar(){
+function confirmarBorrar(id){
     if(confirm("Desea eliminar este registro?")){
-        console.log("Registro eliminado");
+        window.location.href = "CtrlTipoTrabajo?accion=Eliminar&id=" + id;
         }
     }
     
