@@ -12,7 +12,11 @@ INSERT INTO Roles (Rol) VALUES
 	('SysAdmin'),
 	('Gerente'),
     ('RRHH'),
-	('Atencion al cliente');
+	('Atencion al cliente'),
+	('Cortador'),
+    ('Diseñador'),
+    ('Sastre'),
+    ('Costurero');
 
 INSERT INTO Opciones (Opcion) VALUES
 	('Gestionar Cargos'),
