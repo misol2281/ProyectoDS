@@ -16,6 +16,10 @@
         <servlet-name>ControladorCargo</servlet-name>
         <servlet-class>Controlador.ControladorCargo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorRoles</servlet-name>
+        <servlet-class>Controlador.ControladorRoles</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorCliente</servlet-name>
         <url-pattern>/ControladorCliente</url-pattern>
@@ -31,5 +35,9 @@
     <servlet-mapping>
         <servlet-name>ControladorCargo</servlet-name>
         <url-pattern>/ControladorCargo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorRoles</servlet-name>
+        <url-pattern>/ControladorRoles</url-pattern>
     </servlet-mapping>
 </web-app>
