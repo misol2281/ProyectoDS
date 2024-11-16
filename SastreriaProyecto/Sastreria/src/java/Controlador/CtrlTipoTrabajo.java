@@ -28,17 +28,23 @@ public class CtrlTipoTrabajo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
+        try{
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CtrlTipoTrabajo</title>");            
+            out.println("<title>Guardando..</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CtrlTipoTrabajo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Procesando...</h1>");
+            out.println("<script>");
+            out.println("window.close();");
+            out.println("</script>");
             out.println("</body>");
             out.println("</html>");
+        } finally {
+            out.close();
         }
     }
 
@@ -135,6 +141,7 @@ public class CtrlTipoTrabajo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        PrintWriter out = response.getWriter();
         String tipoTrabajo = request.getParameter("TipoTrabajo");
         String descripcion = request.getParameter("Descripcion");
         if (tipoTrabajo == null || descripcion == null) {
@@ -145,14 +152,6 @@ public class CtrlTipoTrabajo extends HttpServlet {
         tt.setTipoTrabajo(tipoTrabajo);
         tt.setDescripcion(descripcion);
         boolean r = dao.AgregarTipoTrabajo(tt);
-        response.sendRedirect("vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp");
-        if (r) {
-            response.getWriter().write("Registro exitoso");
-            response.sendRedirect(listar);
-        } else {
-            response.getWriter().write("Error al guardar el registro");  // Escribe una respuesta de error
-        }
-            
     }
 
     

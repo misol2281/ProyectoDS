@@ -18,12 +18,12 @@
         <div class="contenedorAgregar">
             <span class="btnCerrar" id="cerrarAgregar">&times;</span>
             <h2>Formulario de Registro</h2>
-            <form id="formAgregar" action="../../CtrlTipoTrabajo" method="POST" onsubmit="datosEnviados()">
+            <form id="formAgregar" action="../../CtrlTipoTrabajo" method="POST">
             <label for="TipoTrabajo">Tipo Trabajo:</label>
             <input type="text" id="TipoTrabajo" name="TipoTrabajo" required><br><br>
             <label for="Descripcion">Descripcion:</label>
             <input type="text" id="Descripcion" name="Descripcion" required><br><br>
-            <button type="submit" id="btnAgregar" onclick="datosEnviados()">Agregar</button>
+            <button type="submit" id="btnAgregar">Agregar</button>
             </form>
         </div>
     </div>

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         pestanaAbrir.onload = function () {
             var cerrarAgregar = pestanaAbrir.document.getElementById("cerrarAgregar"); // Botón cerrar en la ventana emergente
             var agregarRegistro = pestanaAbrir.document.getElementById("btnAgregar"); // Botón de agregar registro
-
+            let urlActual = pestanaAbrir.window.location.href;
             // Evento para cerrar la ventana emergente
             cerrarAgregar.onclick = function() {
                 pestanaAbrir.close();
@@ -17,11 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // Enviar los datos del formulario al controlador cuando se hace clic en "Agregar"
             agregarRegistro.onclick = function() {
-                window.onbeforeunload = function(event) {
-                var message = "¿Estás seguro de que deseas salir de esta página?";
-                event.returnValue = message;  
-        }; 
-           
+                window.location.reload();
             };
             
         };
