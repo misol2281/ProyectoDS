@@ -14,11 +14,11 @@
                 <h1>Agregar Cliente</h1>
                 <form action="ControladorCliente">
                     <div class="col-md-6">
-                        <label for="formGroupExampleInput" class="form-label">Nombre:</label><br>
+                        <label  class="form-label">Nombre:</label><br>
                         <input type="text"  class="form-control" name="txtNombre" placeholder="Nombre"><br>
-                        <label for="formGroupExampleInput" class="form-label">Apellido:</label><br>
+                        <label  class="form-label">Apellido:</label><br>
                         <input type="text" class="form-control" name="txtApellido" placeholder="Apellido"><br>
-                        <label for="formGroupExampleInput" class="form-label">Telefono:</label><br>
+                        <label  class="form-label">Telefono:</label><br>
                         <input type="text" class="form-control" name="txtTelefono" placeholder="0000-0000"><br>
                     </div>
                     <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
