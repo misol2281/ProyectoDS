@@ -11,7 +11,7 @@
         <title>Lista MaterialUsar</title>
     </head>
     <body>
-        <div>
+        <div class="container">
             <h1>Lista MaterialUsar</h1>
             
                 <a href="index.jsp">Regresar a Menu</a>
