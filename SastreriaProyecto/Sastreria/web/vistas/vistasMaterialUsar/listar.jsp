@@ -1,5 +1,3 @@
-
-
 <%@page import="java.util.Iterator"%>
 <%@page import="Entidad.MaterialUsar"%>
 <%@page import="java.util.List"%>
@@ -9,6 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <title>Lista MaterialUsar</title>
     </head>
     <body>
