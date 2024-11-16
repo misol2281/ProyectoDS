@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Modelo/DAOOrden.java</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/editarTipoTrabajo.jsp</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/script/scriptTipoTrabajo/TipoTrabajo.js</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/agregarTipoTrabajo.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Interfaces/InterfaceTipoTrabajo.java</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlTipoTrabajo.java</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Interfaces/InterfaceOrden.java</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Config/Conexion.java</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Modelo/DAOTipoTrabajo.java</file>
         </group>
     </open-files>
 </project-private>

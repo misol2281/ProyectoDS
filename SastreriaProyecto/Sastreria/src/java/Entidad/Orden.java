@@ -11,8 +11,8 @@ import java.util.Date;
  * @author Cristian
  */
 public class Orden {
-    private int idCliente;
-    private int idEmpleado;
+    private String nombreCliente;
+    private String nombreEmpleado;
     private Date fechaOrden;
     private Date fechaEntrega;
     private float montoTotal;
@@ -20,28 +20,30 @@ public class Orden {
     public Orden() {
     }
 
-    public Orden(int idCliente, int idEmpleado, Date fechaOrden, Date fechaEntrega, float montoTotal) {
-        this.idCliente = idCliente;
-        this.idEmpleado = idEmpleado;
+    public Orden(String nombreCliente, String nombreEmpleado, Date fechaOrden, Date fechaEntrega, float montoTotal) {
+        this.nombreCliente = nombreCliente;
+        this.nombreEmpleado = nombreEmpleado;
         this.fechaOrden = fechaOrden;
         this.fechaEntrega = fechaEntrega;
         this.montoTotal = montoTotal;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
     }
 
-    public int getIdEmpleado() {
-        return idEmpleado;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setIdEmpleado(int idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
     public Date getFechaOrden() {
