@@ -1,17 +1,17 @@
-<%-- 
-    Document   : index
-    Created on : 29 oct 2024, 3:30:28 p. m.
-    Author     : Ada
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="./css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <br>
+        <br>
+        <div class="container">
+            <a class="btn btn-success btn-lg" href="CtrlMaterial?accion=listar">Listar Material</a>
+             <a class="btn btn-success btn-lg" href="CtrlUnidadMedida?accion=listar">Listar UnidadMedida</a>
+        </div>
     </body>
 </html>
