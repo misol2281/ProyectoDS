@@ -5,17 +5,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>AgregarRol</title>
     </head>
     <body>
-        <div>
-            <h1>Agregar Rol</h1>
+        <div class="container">
+            <div class="col-lg-8">
+                <h1>Agregar Rol</h1>
             <form action="ControladorRoles">
-                Rol:
-                <input type="text" name="txtRol">
-                
-                <input type="submit" name="accion" value="Agregar">
+                <div class="col-md-6">
+                    <label  class="form-label">Rol:</label>
+                    <input type="text" class="form-control" name="txtRol" placeholder="Rol">
+                </div>
+                <br>               
+                <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
+                <a class="btn btn-primary" href="ControladorRoles?accion=listar">Regresar</a>
             </form>
+            </div>            
         </div>
     </body>
 </html>
