@@ -21,31 +21,31 @@
                 <form class="row g-3" action="ControladorMaterialUsar">                    
                     <div class="col-md-4">
                         <label class="form-label">Material:</label>
-                        <input type="text" class="form-control" placeholder="Material" name="txtidMaterial" value="<%= mu.getIdMaterial() %>">
+                        <input type="text" class="form-control" name="txtidMaterial" placeholder="Material" value="<%= mu.getIdMaterial() %>">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Detalle de orden:</label>
-                        <input type="text" class="form-control" placeholder="Detalle Orden" name="txtidDetalleOrden" value="<%= mu.getIdDetalleOrden()%>">
+                        <input type="text" class="form-control" name="txtidDetalleOrden" placeholder="Detalle Orden" value="<%= mu.getIdDetalleOrden()%>">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Unidad de Medida:</label>
-                        <input type="text" class="form-control" placeholder="Unidad de Medida" name="txtidUnidadMedida" value="<%= mu.getIdUnidadMedida() %>">
+                        <input type="text" class="form-control" name="txtidUnidadMedida" placeholder="Unidad de Medida" value="<%= mu.getIdUnidadMedida() %>">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Caracteristicas de Material:</label>
-                        <input type="text" class="form-control" placeholder="Caracteristicas" name="txtCaractMaterial" value="<%= mu.getCaracteristicas() %>">
+                        <input type="text" class="form-control"  name="txtCaractMaterial" placeholder="Caracteristicas" value="<%= mu.getCaracteristicas() %>">
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Cantidad:</label>
-                        <input type="text" class="form-control" placeholder="00" name="txtCantidad" value="<%= mu.getCantidad() %>">
+                        <input type="text" class="form-control" name="txtCantidad" placeholder="00" value="<%= mu.getCantidad() %>">
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Precio:</label>
-                        <input type="text" class="form-control" placeholder="0.00" name="txtPrecio" value="<%= mu.getPrecio() %>">
+                        <input type="text" class="form-control" name="txtPrecio" placeholder="0.00" value="<%= mu.getPrecio() %>">
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">SubTotal:</label>
-                        <input type="text" class="form-control" placeholder="0.00" name="txtSubTotal" value="<%= mu.getSubTotal() %>">
+                        <input type="text" class="form-control" name="txtSubTotal" placeholder="0.00" value="<%= mu.getSubTotal() %>">
                     </div>
                     <input type="hidden" name="txtid" value="<%= mu.getId() %>">
                     <div class="col-12">
