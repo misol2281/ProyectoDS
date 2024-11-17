@@ -21,7 +21,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-center">ID</th>
+                        
                         <th class="text-center">NOMBRES</th>
                         <th class="text-center">APELLIDOS</th>
                         <th class="text-center">DUI</th>
@@ -45,7 +45,7 @@
                 %>
                 <tbody>
                     <tr>
-                        <td class="text-center"><%= emp.getId() %></td>
+                        
                         <td class="text-center"><%= emp.getNombre() %></td>
                         <td class="text-center"><%= emp.getApellido() %></td>
                         <td class="text-center"><%= emp.getDUI() %></td>
