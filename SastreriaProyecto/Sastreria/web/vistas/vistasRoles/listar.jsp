@@ -9,22 +9,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>ListarRoles</title>
     </head>
     <body>
-        <div>
-            <h1>Lista de Roles</h1>
+        <div class="container">
+            <h1 class="text-center">Lista de Roles</h1>
             
-            <a href="index.jsp">Regresar a Menu</a>
-            <a href="ControladorRoles?accion=add">Agregar Roles</a>
+            <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
+            <a class="btn btn-primary" href="ControladorRoles?accion=add">Agregar Roles</a>
+            <br>
             <br>
             
-            <table border="1">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>ROLES</th>
-                        <th>ACCIONES</th>
+                        
+                        <th class="text-center">ROLES</th>
+                        <th class="text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <%
@@ -38,11 +40,11 @@
                 %>
                 <tbody>
                     <tr>
-                        <td><%= rol.getId() %></td>
-                        <td><%= rol.getRol() %></td>
-                        <td>
-                            <a href="ControladorRoles?accion=editar&id=<%= rol.getId() %>">Editar</a>
-                            <a href="ControladorRoles?accion=eliminar&id=<%= rol.getId() %>">Eliminar</a>
+                        
+                        <td class="text-center"><%= rol.getRol() %></td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-primary" href="ControladorRoles?accion=editar&id=<%= rol.getId() %>">Editar</a>
+                            <a class="btn btn-outline-primary" href="ControladorRoles?accion=eliminar&id=<%= rol.getId() %>">Eliminar</a>
                         </td>
                     </tr>
                     <%}%>
