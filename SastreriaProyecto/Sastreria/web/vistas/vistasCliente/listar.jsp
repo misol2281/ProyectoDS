@@ -24,7 +24,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-center">ID</th>
+                        
                         <th class="text-center">NOMBRE</th>
                         <th class="text-center">APELLIDO</th>
                         <th class="text-center">TELEFONO</th>
@@ -42,7 +42,7 @@
                 %>
                 <tbody>
                     <tr>
-                        <td class="text-center"><%= cli.getId() %></td>
+                        
                         <td class="text-center"><%= cli.getNombre() %></td>
                         <td class="text-center"><%= cli.getApellido() %></td>
                         <td class="text-center"><%= cli.getTelefono() %></td>
