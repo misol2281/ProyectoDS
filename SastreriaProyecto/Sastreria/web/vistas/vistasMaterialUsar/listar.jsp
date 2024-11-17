@@ -21,7 +21,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-center">IDMaterialUsar</th>
+                        
                         <th class="text-center">IDMaterial</th>
                         <th class="text-center">IDDetalleOrden</th>
                         <th class="text-center">IDUnidadMedida</th>
@@ -42,7 +42,7 @@
                 %>
                 <tbody>
                     <tr>
-                        <td class="text-center"><%= mtu.getId() %></td>
+                        
                         <td class="text-center"><%= mtu.getIdMaterial() %></td>
                         <td class="text-center"><%= mtu.getIdDetalleOrden() %></td>
                         <td class="text-center"><%= mtu.getIdUnidadMedida() %></td>
