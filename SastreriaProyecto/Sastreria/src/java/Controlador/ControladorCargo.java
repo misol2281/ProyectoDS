@@ -73,7 +73,7 @@ public class ControladorCargo extends HttpServlet {
             c.setCargo(cargo);
             cdao.add(c);
             acceso = listar;
-        }else if(action.equalsIgnoreCase("editar")){
+        }else if(action.equalsIgnoreCase("editar")){            
             request.setAttribute("idcar", request.getParameter("id"));
             acceso = edit;
         }else if(action.equalsIgnoreCase("Actualizar")){
@@ -86,7 +86,7 @@ public class ControladorCargo extends HttpServlet {
         }else if(action.equalsIgnoreCase("eliminar")){
             id = Integer.parseInt(request.getParameter("id"));
             c.setId(id);
-            cdao.eliinar(id);
+            cdao.eliminar(id);
             acceso = listar;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
