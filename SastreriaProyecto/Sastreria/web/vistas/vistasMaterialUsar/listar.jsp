@@ -22,9 +22,9 @@
                 <thead>
                     <tr>
                         
-                        <th class="text-center">IDMaterial</th>
+                        <th class="text-center">Material</th>
                         <th class="text-center">IDDetalleOrden</th>
-                        <th class="text-center">IDUnidadMedida</th>
+                        <th class="text-center">UnidadMedida</th>
                         <th class="text-center">Caracteristicas Material</th>
                         <th class="text-center">Cantidad</th>
                         <th class="text-center">Precio</th>
@@ -43,9 +43,9 @@
                 <tbody>
                     <tr>
                         
-                        <td class="text-center"><%= mtu.getIdMaterial() %></td>
+                        <td class="text-center"><%= mtu.getMaterial() %></td>
                         <td class="text-center"><%= mtu.getIdDetalleOrden() %></td>
-                        <td class="text-center"><%= mtu.getIdUnidadMedida() %></td>
+                        <td class="text-center"><%= mtu.getUnidadMedida() %></td>
                         <td class="text-center"><%= mtu.getCaracteristicas() %></td>
                         <td class="text-center"><%= mtu.getCantidad() %></td>
                         <td class="text-center"><%= mtu.getPrecio() %></td>
