@@ -2,10 +2,10 @@ package Entidad;
 
 
 public class Cliente {
-    int id;
-    String Nombre;
-    String Apellido;
-    String Telefono;
+    private int id;
+    private String Nombre;
+    private String Apellido;
+    private String Telefono;
 
     public Cliente() {
     }
