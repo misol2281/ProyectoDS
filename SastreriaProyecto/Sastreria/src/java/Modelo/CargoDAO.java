@@ -33,7 +33,7 @@ public class CargoDAO implements CRUDCargo {
                 list.add(car);
             }
         }catch (Exception e){
-            
+            System.out.println("Error al listar"+e.getMessage());        
         }
         return list;
     }
