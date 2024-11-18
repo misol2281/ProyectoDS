@@ -54,7 +54,7 @@
                         <td class="text-center"><%= emp.getGenero() %></td>
                         <td class="text-center"><%= emp.getEstadoCivil() %></td>
                         <td class="text-center"><%= emp.getCorreo() %></td>
-                        <td class="text-center"><%= emp.getIdCargo() %></td>
+                        <td class="text-center"><%= emp.getCargo() %></td>
                         <td class="text-center">
                             <div class="col-10">
                                 <a class="btn btn-outline-primary" href="ControladorEmpleado?accion=editar&id=<%= emp.getId() %>">Editar</a>
