@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,6 +6,7 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>AgregarEmpleado</title>
     </head>
+
     <body>
         <div class="container">
             <div class="col-lg-8">
@@ -55,7 +54,7 @@
                         <input type="text" class="form-control" name="txtCorreo" placeholder="nombre.apellido@sastreria.com"><br>
                     </div>
                     <div class="col-md-9">
-                        <label class="form-label">IdCargo:</label>
+                        <label class="form-label">IdCargo:</label>                        
                         <input type="text" class="form-control" name="txtCargo" placeholder="id">
                     </div>                        
                     <div class="col-12">
