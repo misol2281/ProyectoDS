@@ -1,5 +1,3 @@
-
-
 <%@page import="Entidad.Empleados"%>
 <%@page import="Modelo.EmpleadoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
