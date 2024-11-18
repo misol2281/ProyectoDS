@@ -2,8 +2,8 @@ package Entidad;
 
 
 public class Roles {
-    int id;
-    String Rol;
+    private int id;
+    private String Rol;
 
     public Roles() {
     }
