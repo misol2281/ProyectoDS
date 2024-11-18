@@ -28,7 +28,7 @@
                     if (listC != null && !listC.isEmpty()) {
                         for (Cliente c : listC) {
                 %>
-                    <option value="<%= c.getNombre() %> <%= c.getApellido() %>">
+                    <option value="<%= c.getNombre() %> <%= c.getApellido() %>" data-id="<%= c.getId() %>"></option>
                 <%  
                         }
                     }
@@ -36,7 +36,7 @@
             </datalist><br><br>
 
             <!-- Campo oculto para ID del cliente -->
-            <input type="text" id="idCliente" style="display: none;" name="idCliente" value="<%= (listC != null && !listC.isEmpty()) ? listC.get(0).getId() : "" %>">
+            <input type="hidden" id="idCliente" name="idCliente">
 
             <label for="Empleado">Empleado:</label>
             <input list="lsEmpleados" id="empleado" name="empleado" placeholder="Escribe para ver sugerencias">
@@ -47,15 +47,18 @@
                     if (listE != null && !listE.isEmpty()) {
                         for (Empleados em : listE) {
                 %>
-                    <option value="<%= em.getNombre() %> <%= em.getApellido() %>">
+                    <option value="<%= em.getNombre() %> <%= em.getApellido() %>"data-id="<%= em.getId() %>"></option>
                 <%  
                         }
                     }
+                    else{
                 %>
+                    <option value="Null">
+                        <%}%>
             </datalist><br><br>
 
             <!-- Campo oculto para ID del empleado -->
-            <input type="text" id="idEmpleado" style="display: none;" name="idEmpleado" value="<%= (listE != null && !listE.isEmpty()) ? listE.get(0).getId() : "" %>">
+            <input type="hidden" id="idEmpleado" name="idEmpleado">
 
             <label for="fechaOrden">Fecha Orden:</label>
             <input type="date" id="fechaOrden" name="fechaOrden">

@@ -14,10 +14,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+
 
 /**
  *
@@ -84,7 +84,7 @@ public class CtrlOrden extends HttpServlet {
         o.setFechaEntrega(fechaEntrega);
         o.setMontoTotal(montoTotal);
         dao.AgregarOrden(o);
-        }catch(Exception e){
+        }catch(NumberFormatException | ParseException e){
             System.out.println("Error al pasar dato: "+e.getMessage());
         }
     }

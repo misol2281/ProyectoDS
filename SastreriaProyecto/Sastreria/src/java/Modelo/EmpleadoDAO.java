@@ -38,11 +38,11 @@ public class EmpleadoDAO implements CRUDEmpleado {
                 emp.setGenero(rs.getString("Genero").charAt(0));
                 emp.setEstadoCivil(rs.getString("EstadoCivil"));
                 emp.setCorreo(rs.getString("Correo"));
-                emp.setIdCargo(rs.getInt("idCargo"));
                 list.add(emp);
+                
             }
         } catch (Exception e){
-            
+            System.out.println("No se puede listar");
         }
         return list;
     }
