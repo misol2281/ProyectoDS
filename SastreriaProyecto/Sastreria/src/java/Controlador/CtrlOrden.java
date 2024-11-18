@@ -4,6 +4,8 @@
  */
 package Controlador;
 
+import Entidad.Orden;
+import Modelo.DAOOrden;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +14,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -24,29 +30,27 @@ public class CtrlOrden extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
+        try{
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CtrlOrden</title>");            
+            out.println("<title>Guardando..</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CtrlOrden at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Procesando...</h1>");
+            out.println("<script>");
+            out.println("window.close();");
+            out.println("</script>");
             out.println("</body>");
             out.println("</html>");
+        } finally {
+            out.close();
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -60,25 +64,32 @@ public class CtrlOrden extends HttpServlet {
 
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+        int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try{
+        Date fechaOrden = sdf.parse(request.getParameter("fechaOrden"));
+        Date fechaEntrega = sdf.parse(request.getParameter("fechaEntrega"));
+        float montoTotal = Float.parseFloat(request.getParameter("monto"));
+        DAOOrden dao = new DAOOrden();
+        Orden o = new Orden();
+        o.setIdCliente(idCliente);
+        o.setIdEmpleado(idEmpleado);
+        o.setFechaOrden(fechaOrden);
+        o.setFechaEntrega(fechaEntrega);
+        o.setMontoTotal(montoTotal);
+        dao.AgregarOrden(o);
+        }catch(Exception e){
+            System.out.println("Error al pasar dato: "+e.getMessage());
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

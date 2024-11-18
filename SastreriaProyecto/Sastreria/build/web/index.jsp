@@ -14,5 +14,10 @@
     <body>
         <a href="CtrlTipoTrabajo?accion=listar">Listar Tipos de Trabajos</a>
         <a href="CtrlOrden?accion=listar">Listar Ordenes</a>
+        <a href="ControladorCliente?accion=listar">Lista de Clientes</a>
+        <a href="ControladorMaterialUsar?accion=listar">Lista de Material a Usar</a>
+        <a href="ControladorEmpleado?accion=listar">Lista de Empleados</a>
+        <a href="ControladorCargo?accion=listar">Lista de Cargos</a>
+        <a href="ControladorRoles?accion=listar">Lista de Roles</a>
     </body>
 </html>

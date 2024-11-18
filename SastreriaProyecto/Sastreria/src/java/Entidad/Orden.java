@@ -12,6 +12,8 @@ import java.util.Date;
  */
 public class Orden {
     private int id;
+    private int idCliente;
+    private int idEmpleado;
     private String nombreCliente;
     private String nombreEmpleado;
     private Date fechaOrden;
@@ -35,6 +37,22 @@ public class Orden {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getNombreEmpleado() {
