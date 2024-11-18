@@ -22,7 +22,12 @@ public class EmpleadoDAO implements CRUDEmpleado {
     @Override
     public List listar() {
         ArrayList<Empleados>list = new ArrayList<>();
-        String sql = "select * from Empleado";
+        String sql = "select Empleado.idEmpleado, Empleado.Nombre, Empleado.Apellido, Empleado.dui,\n" +
+                    "Empleado.FechaNacimiento, Empleado.Telefono, \n" +
+                    "Empleado.Genero, Empleado.EstadoCivil, Empleado.Correo,\n" +
+                    "Cargos.Cargo AS Cargo \n" +
+                    "from Empleado inner join Cargos\n" +
+                    "on Empleado.idCargo = Cargos.idCargo;";
         try{
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -38,11 +43,11 @@ public class EmpleadoDAO implements CRUDEmpleado {
                 emp.setGenero(rs.getString("Genero").charAt(0));
                 emp.setEstadoCivil(rs.getString("EstadoCivil"));
                 emp.setCorreo(rs.getString("Correo"));
-                emp.setIdCargo(rs.getInt("idCargo"));
+                emp.setCargo(rs.getString("Cargo"));
                 list.add(emp);
             }
         } catch (Exception e){
-            
+            System.out.println("Error al mostrar"+e.getMessage());
         }
         return list;
     }
