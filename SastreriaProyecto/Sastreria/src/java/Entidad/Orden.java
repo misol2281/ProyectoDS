@@ -11,6 +11,7 @@ import java.util.Date;
  * @author Cristian
  */
 public class Orden {
+    private int id;
     private String nombreCliente;
     private String nombreEmpleado;
     private Date fechaOrden;
@@ -28,7 +29,13 @@ public class Orden {
         this.montoTotal = montoTotal;
     }
 
-    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombreEmpleado() {
         return nombreEmpleado;

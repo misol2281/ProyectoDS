@@ -18,7 +18,6 @@ import java.util.List;
 public class DAOOrden implements InterfaceOrden{
     Conexion conexion = new Conexion();
     Connection con = conexion.getConnection();
-    DAOOrden dao = new DAOOrden();
     PreparedStatement ps;
     ResultSet rs;
     @Override
