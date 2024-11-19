@@ -1,0 +1,116 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 20px;
+    color: #333;
+}
+
+/* Contenedor principal */
+div {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #d6e9f5;
+    cursor: pointer;
+}
+
+/* Mensajes de error */
+.error {
+    color: #dc3545;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Botones de acción (Eliminar y Modificar) */
+.btn-acciones {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-acciones i {
+    margin-right: 8px;
+}
+
+/* Botón de Eliminar */
+.btn-acciones.eliminar {
+    background-color: #e74c3c; /* Rojo para eliminar */
+    color: white;
+}
+
+.btn-acciones.eliminar:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Botón de Modificar */
+.btn-acciones.modificar {
+    background-color: #3498db; /* Azul para modificar */
+    color: white;
+}
+
+.btn-acciones.modificar:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Botón de Agregar (similar al estilo de la tabla) */
+#abrirAgregar {
+    background-color: #28a745; /* Verde para agregar */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#abrirAgregar:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
