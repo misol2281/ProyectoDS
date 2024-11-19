@@ -63,7 +63,7 @@ public class CargoDAO implements CRUDCargo {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         }catch(Exception e){
-            
+            System.out.println("Error al agregar Material" +e.getMessage());
         }
         return false;
     }
@@ -89,7 +89,7 @@ public class CargoDAO implements CRUDCargo {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
        }catch(Exception e){
-           
+           System.out.println("Error al eliminar"+e.getMessage());
        }
        return false;
     }
