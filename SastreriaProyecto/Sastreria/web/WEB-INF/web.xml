@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
+<<<<<<< HEAD
         <servlet-name>CtrlTipoTrabajo</servlet-name>
         <servlet-class>Controlador.CtrlTipoTrabajo</servlet-class>
     </servlet>
@@ -9,4 +10,61 @@
         <url-pattern>/CtrlTipoTrabajo</url-pattern>
     </servlet-mapping>
    
+=======
+        <servlet-name>ControladorCliente</servlet-name>
+        <servlet-class>Controlador.ControladorCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorMaterialUsar</servlet-name>
+        <servlet-class>Controlador.ControladorMaterialUsar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorEmpleado</servlet-name>
+        <servlet-class>Controlador.ControladorEmpleado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorCargo</servlet-name>
+        <servlet-class>Controlador.ControladorCargo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorRoles</servlet-name>
+        <servlet-class>Controlador.ControladorRoles</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <servlet-class>Controlador.ControladorMaterial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <servlet-class>Controlador.ControladorUnidadMedida</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorCliente</servlet-name>
+        <url-pattern>/ControladorCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorMaterialUsar</servlet-name>
+        <url-pattern>/ControladorMaterialUsar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorEmpleado</servlet-name>
+        <url-pattern>/ControladorEmpleado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCargo</servlet-name>
+        <url-pattern>/ControladorCargo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorRoles</servlet-name>
+        <url-pattern>/ControladorRoles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <url-pattern>/ControladorMaterial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <url-pattern>/ControladorUnidadMedida</url-pattern>
+    </servlet-mapping>
+>>>>>>> 2b3e681f99e6c56a89d6b679b6c1782cb835dfff
 </web-app>
