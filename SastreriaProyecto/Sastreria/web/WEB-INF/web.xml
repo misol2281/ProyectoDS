@@ -16,6 +16,18 @@
         <servlet-name>ControladorCargo</servlet-name>
         <servlet-class>Controlador.ControladorCargo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorRoles</servlet-name>
+        <servlet-class>Controlador.ControladorRoles</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <servlet-class>Controlador.ControladorMaterial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <servlet-class>Controlador.ControladorUnidadMedida</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorCliente</servlet-name>
         <url-pattern>/ControladorCliente</url-pattern>
@@ -31,5 +43,17 @@
     <servlet-mapping>
         <servlet-name>ControladorCargo</servlet-name>
         <url-pattern>/ControladorCargo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorRoles</servlet-name>
+        <url-pattern>/ControladorRoles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <url-pattern>/ControladorMaterial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <url-pattern>/ControladorUnidadMedida</url-pattern>
     </servlet-mapping>
 </web-app>

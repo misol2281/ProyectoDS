@@ -75,7 +75,7 @@ public class ClienteDAO implements CRUDCliente{
 
     @Override
     public boolean edit(Cliente cli) {
-        String sql="update Cliente set Nombre = '"+cli.getNombre()+"', Apellido = '"+cli.getApellido()+"', Telefono = '"+cli.getTelefono()+"' where idCliente="+cli.getId();
+        String sql="update Cliente set Nombre = '"+cli.getNombre()+"', Apellido = '"+cli.getApellido()+"', Telefono = '"+cli.getTelefono()+"' where idCliente ="+cli.getId();
         try{
             con = cn.getConnection();
             ps = con.prepareStatement(sql);

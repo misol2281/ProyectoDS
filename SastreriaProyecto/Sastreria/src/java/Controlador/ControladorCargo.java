@@ -4,6 +4,9 @@
  */
 package Controlador;
 
+import Entidad.Cargo;
+import Modelo.CargoDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,11 +14,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Ada
- */
+
 public class ControladorCargo extends HttpServlet {
+    
+    String listar = "vistas/vistasCargo/listar.jsp";
+    String add = "vistas/vistasCargo/add.jsp";
+    String edit = "vistas/vistasCargo/edit.jsp";
+    int id;
+    Cargo c = new Cargo();
+    CargoDAO cdao = new CargoDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -55,7 +62,35 @@ public class ControladorCargo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String acceso = "";
+        String action = request.getParameter("accion");
+        if(action.equalsIgnoreCase("listar")){
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso = add;
+        }else if(action.equalsIgnoreCase("Agregar")){
+            String cargo = request.getParameter("txtCargo");
+            c.setCargo(cargo);
+            cdao.add(c);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("editar")){            
+            request.setAttribute("idcar", request.getParameter("id"));
+            acceso = edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            id = Integer.parseInt(request.getParameter("txtid"));
+            String cargo = request.getParameter("txtCargo");
+            c.setId(id);
+            c.setCargo(cargo);
+            cdao.edit(c);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            id = Integer.parseInt(request.getParameter("id"));
+            c.setId(id);
+            cdao.eliminar(id);
+            acceso = listar;
+        }
+        RequestDispatcher vista = request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
     }
 
     /**

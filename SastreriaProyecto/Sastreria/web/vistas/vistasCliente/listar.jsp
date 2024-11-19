@@ -9,24 +9,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>Lista Clientes</title>
     </head>
     <body>
-        <div>
-            <h1>Lista de Clientes</h1>
+        <div class="container">
+            <h1 class="text-center">Lista de Clientes</h1>
 
-                <a href="index.jsp">Regresar a Menu</a>
-                <a href="ControladorCliente?accion=add">Agregar Cliente</a>
-                <br>
-                
-            <table border="1">
+            <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
+            
+            <a class="btn btn-primary" href="ControladorCliente?accion=add">Agregar Cliente</a>
+            <br>
+            <br>    
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>APELLIDO</th>
-                        <th>TELEFONO</th>
-                        <th>ACCIONES</th>
+                        
+                        <th class="text-center">NOMBRE</th>
+                        <th class="text-center">APELLIDO</th>
+                        <th class="text-center">TELEFONO</th>
+                        <th class="text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <%
@@ -40,13 +42,13 @@
                 %>
                 <tbody>
                     <tr>
-                        <td><%= cli.getId() %></td>
-                        <td><%= cli.getNombre() %></td>
-                        <td><%= cli.getApellido() %></td>
-                        <td><%= cli.getTelefono() %></td>
-                        <td>
-                            <a href="ControladorCliente?accion=editar&id=<%= cli.getId()%>">Editar</a>
-                            <a href="ControladorCliente?accion=eliminar&id=<%= cli.getId()%>">Eliminar</a>
+                        
+                        <td class="text-center"><%= cli.getNombre() %></td>
+                        <td class="text-center"><%= cli.getApellido() %></td>
+                        <td class="text-center"><%= cli.getTelefono() %></td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-primary" href="ControladorCliente?accion=editar&id=<%= cli.getId()%>">Editar</a>
+                            <a class="btn btn-outline-primary" href="ControladorCliente?accion=eliminar&id=<%= cli.getId()%>">Eliminar</a>
                         </td>
                     </tr>
                     <%}%>

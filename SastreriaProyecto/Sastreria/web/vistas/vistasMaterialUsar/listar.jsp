@@ -1,5 +1,3 @@
-
-
 <%@page import="java.util.Iterator"%>
 <%@page import="Entidad.MaterialUsar"%>
 <%@page import="java.util.List"%>
@@ -9,28 +7,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>Lista MaterialUsar</title>
     </head>
     <body>
-        <div>
-            <h1>Lista MaterialUsar</h1>
+        <div class="container">
+            <h1 class="text-center">Lista MaterialUsar</h1>
             
-                <a href="index.jsp">Regresar a Menu</a>
-                <a href="ControladorMaterialUsar?accion=add">Agregar Material</a>
+                <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
+                <a class="btn btn-primary" href="ControladorMaterialUsar?accion=add">Agregar Material</a>
                 <br>
-            
-            <table border="1">
+                <br>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>IDMaterialUsar</th>
-                        <th>IDMaterial</th>
-                        <th>IDDetalleOrden</th>
-                        <th>IDUnidadMedida</th>
-                        <th>Caracteristicas Material</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>SubTotal</th>
-                        <th>ACCIONES</th>
+                        
+                        <th class="text-center">Material</th>
+                        <th class="text-center">IDDetalleOrden</th>
+                        <th class="text-center">UnidadMedida</th>
+                        <th class="text-center">Caracteristicas Material</th>
+                        <th class="text-center">Cantidad</th>
+                        <th class="text-center">Precio</th>
+                        <th class="text-center">SubTotal</th>
+                        <th class="text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <%
@@ -43,17 +42,17 @@
                 %>
                 <tbody>
                     <tr>
-                        <td><%= mtu.getId() %></td>
-                        <td><%= mtu.getIdMaterial() %></td>
-                        <td><%= mtu.getIdDetalleOrden() %></td>
-                        <td><%= mtu.getIdUnidadMedida() %></td>
-                        <td><%= mtu.getCaracteristicas() %></td>
-                        <td><%= mtu.getCantidad() %></td>
-                        <td><%= mtu.getPrecio() %></td>
-                        <td><%= mtu.getSubTotal() %></td>
-                        <td>
-                            <a href="ControladorMaterialUsar?accion=editar&id=<%= mtu.getId() %>">Editar</a>
-                            <a href="ControladorMaterialUsar?accion=eliminar&id=<%= mtu.getId() %>">Eliminar</a>
+                        
+                        <td class="text-center"><%= mtu.getMaterial() %></td>
+                        <td class="text-center"><%= mtu.getIdDetalleOrden() %></td>
+                        <td class="text-center"><%= mtu.getUnidadMedida() %></td>
+                        <td class="text-center"><%= mtu.getCaracteristicas() %></td>
+                        <td class="text-center"><%= mtu.getCantidad() %></td>
+                        <td class="text-center"><%= mtu.getPrecio() %></td>
+                        <td class="text-center"><%= mtu.getSubTotal() %></td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-primary" href="ControladorMaterialUsar?accion=editar&id=<%= mtu.getId() %>">Editar</a>
+                            <a class="btn btn-outline-primary" href="ControladorMaterialUsar?accion=eliminar&id=<%= mtu.getId() %>">Eliminar</a>
                         </td>
                     </tr>
                     <%}%>

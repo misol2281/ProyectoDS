@@ -8,5 +8,5 @@ public interface CRUDCargo {
     public Cargo list(int id);
     public boolean add(Cargo car);
     public boolean edit(Cargo car);
-    public boolean eliinar(int id);
+    public boolean eliminar(int id);
 }

@@ -76,7 +76,7 @@ public class ControladorEmpleado extends HttpServlet {
             Date fechanaci = Date.valueOf(request.getParameter("txtfnaci"));
             String telefono = request.getParameter("txtTelefono");
             char genero = request.getParameter("genero").charAt(0);
-            String estadocivil = request.getParameter("txtEstadoCivil");
+            String estadocivil = request.getParameter("estadocivil");
             String correo = request.getParameter("txtCorreo");
             int idcargo = Integer.parseInt(request.getParameter("txtCargo"));
             e.setNombre(nombre);

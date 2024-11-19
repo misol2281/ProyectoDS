@@ -3,21 +3,22 @@ package Entidad;
 import java.sql.Date;
 
 public class Empleados {
-    int id;
-    String Nombre;
-    String Apellido;
-    String DUI;
-    Date FechaNacimiento;
-    String Telefono;
-    char Genero;
-    String EstadoCivil;
-    String Correo;
-    int idCargo;
+    private int id;
+    private String Nombre;
+    private String Apellido;
+    private String DUI;
+    private Date FechaNacimiento;
+    private String Telefono;
+    private char Genero;
+    private String EstadoCivil;
+    private String Correo;
+    private int idCargo;
+    private String Cargo;
 
     public Empleados() {
     }
 
-    public Empleados(String Nombre, String Apellido, String DUI, Date FechaNacimiento, String Telefono, char Genero, String EstadoCivil, String Correo, int idCargo) {
+    public Empleados(String Nombre, String Apellido, String DUI, Date FechaNacimiento, String Telefono, char Genero, String EstadoCivil, String Correo, int idCargo, String Cargo) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.DUI = DUI;
@@ -27,6 +28,7 @@ public class Empleados {
         this.EstadoCivil = EstadoCivil;
         this.Correo = Correo;
         this.idCargo = idCargo;
+        this.Cargo = Cargo;
     }
 
 
@@ -108,6 +110,14 @@ public class Empleados {
 
     public void setIdCargo(int idCargo) {
         this.idCargo = idCargo;
+    }
+
+    public String getCargo() {
+        return Cargo;
+    }
+
+    public void setCargo(String Cargo) {
+        this.Cargo = Cargo;
     }
     
     
