@@ -1,5 +1,8 @@
 package Controlador;
 
+import Entidad.Material;
+import Modelo.MaterialDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -8,6 +11,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ControladorMaterial extends HttpServlet {
+    
+    String listar = "vistas/vistasMaterial/listar.jsp";
+    String add = "vistas/vistasMaterial/add.jsp";
+    String edit = "vistas/vistasMaterial/edit.jsp";
+    int id;
+    Material m = new Material();
+    MaterialDAO mdao = new MaterialDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,7 +57,39 @@ public class ControladorMaterial extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String acceso = "";
+        String action = request.getParameter("accion");
+        if(action.equalsIgnoreCase("listar")){
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso = add;
+        }else if(action.equalsIgnoreCase("Agregar")){
+            String material = request.getParameter("txtMaterial");
+            String descripcion = request.getParameter("txtDescripcion");
+            m.setMaterial(material);
+            m.setDescripcion(descripcion);
+            mdao.add(m);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("idmat", request.getParameter("id"));
+            acceso = edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            id = Integer.parseInt(request.getParameter("txtid"));
+            String material = request.getParameter("txtMaterial");
+            String descrip = request.getParameter("txtDescripcion");
+            m.setId(id);
+            m.setMaterial(material);
+            m.setDescripcion(descrip);
+            mdao.edit(m);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            id = Integer.parseInt(request.getParameter("id"));
+            m.setId(id);
+            mdao.eliminar(id);
+            acceso = listar;
+        }
+        RequestDispatcher vista = request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
     }
 
     /**
@@ -61,7 +103,7 @@ public class ControladorMaterial extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**
