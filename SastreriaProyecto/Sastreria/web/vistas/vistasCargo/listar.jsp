@@ -20,9 +20,7 @@
             <br>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
-                        
-                        
+                    <tr>                        
                         <th class="text-center">CARGO</th>
                         <th class="text-center">ACCIONES</th>
                     </tr>
