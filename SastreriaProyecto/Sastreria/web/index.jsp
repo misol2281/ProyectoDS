@@ -17,6 +17,10 @@
             <a href="ControladorCargo?accion=listar">Lista de Cargos</a>
             <br>
             <a href="ControladorRoles?accion=listar">Lista de Roles</a>
+            <br>
+            <a href="ControladorMaterial?accion=listar">Lista de Materiales</a>
+            <br>
+            <a href="ControladorUnidadMedida?accion=listar">Lista de UnidadMedida</a>
         </div>
     </body>
 </html>
