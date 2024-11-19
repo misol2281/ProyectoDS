@@ -1,5 +1,8 @@
 package Controlador;
 
+import Entidad.UnidadMedida;
+import Modelo.UnidadMedidaDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -8,6 +11,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ControladorUnidadMedida extends HttpServlet {
+    
+    String listar = "vistas/vistasUnidadMedida/listar.jsp";
+    String add = "vistas/vistasUnidadMedida/add.jsp";
+    String edit = "vistas/vistasUnidadMedida/edit.jsp";
+    int id;
+    UnidadMedida um = new UnidadMedida();
+    UnidadMedidaDAO umdao = new UnidadMedidaDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,7 +57,39 @@ public class ControladorUnidadMedida extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String acceso = "";
+        String action = request.getParameter("accion");
+        if(action.equalsIgnoreCase("listar")){
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso = add;
+        }else if(action.equalsIgnoreCase("Agregar")){
+            String uni = request.getParameter("txtUnidadM");
+            String descripcion = request.getParameter("txtDescripcion");
+            um.setUnidadMedida(uni);
+            um.setDescripcion(descripcion);
+            umdao.add(um);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("idumd", request.getParameter("id"));
+            acceso = edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            id = Integer.parseInt(request.getParameter("txtid"));
+            String unimedi = request.getParameter("txtUnidadM");
+            String descrip = request.getParameter("txtDescripcion");
+            um.setId(id);
+            um.setUnidadMedida(unimedi);
+            um.setDescripcion(descrip);
+            umdao.edit(um);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            id = Integer.parseInt(request.getParameter("id"));
+            um.setId(id);
+            umdao.eliminar(id);
+            acceso = listar;
+        }
+        RequestDispatcher vista = request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
     }
 
     /**
