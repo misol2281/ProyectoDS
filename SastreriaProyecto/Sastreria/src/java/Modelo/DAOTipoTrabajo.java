@@ -89,7 +89,7 @@ public class DAOTipoTrabajo implements InterfaceTipoTrabajo{
             return true;
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
             System.out.println("Error al actualizar" + e.getMessage());
         }
         return false;

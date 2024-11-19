@@ -27,6 +27,7 @@ import java.util.Date;
 public class CtrlOrden extends HttpServlet {
 
     String listar = "vistas/vistaOrden/listarOrden.jsp";
+    String editar = "vistas/vistaOrden/editarOrden.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -58,6 +59,73 @@ public class CtrlOrden extends HttpServlet {
         String action = request.getParameter("accion");
         if(action.equalsIgnoreCase("listar")){
             acceso=listar;
+        }
+        else if (action.equalsIgnoreCase("Eliminar")) {
+            int id = 0;
+            try {
+                id = Integer.parseInt(request.getParameter("id"));
+                if (id > 0) {
+                    DAOOrden dao = new DAOOrden();
+                    boolean eliminado = dao.EliminarOrden(id);
+
+                    if (eliminado) {
+                        System.out.println("Dato eliminado correctamente.");
+                    } else {
+                        System.out.println("No se pudo eliminar el dato.");
+                    }
+                } else {
+                    System.out.println("El ID debe ser mayor que 0.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: El ID proporcionado no es un número válido.");
+            }
+
+            acceso = listar;
+        }
+        else if(action.equalsIgnoreCase("Enviar")){
+            try{
+                int id = Integer.parseInt(request.getParameter("id"));
+                DAOOrden dao = new DAOOrden();
+                Orden o = new Orden();
+                o = dao.BuscarPorId(id);
+                System.out.println("valor: "+o.getIdCliente() + o.getMontoTotal());
+                if(o!=null){
+                   request.setAttribute("id", o.getId()); 
+                   request.setAttribute("idCliente",o.getIdCliente());
+                   request.setAttribute("idEmpleado", o.getIdEmpleado());
+                   request.setAttribute("fechaOrden", o.getFechaOrden());
+                   request.setAttribute("fechaEntrega", o.getFechaEntrega());
+                   request.setAttribute("monto", o.getMontoTotal());
+                   acceso = editar; 
+                }
+            }
+            catch(Exception e){
+                System.out.println("Error al enviar registro");
+            }
+        }
+        
+        else if (action.equalsIgnoreCase("Editar")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+            int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            try{
+            Date fechaOrden = sdf.parse(request.getParameter("fechaOrden"));
+            Date fechaEntrega = sdf.parse(request.getParameter("fechaEntrega"));
+            float montoTotal = Float.parseFloat(request.getParameter("monto"));
+            DAOOrden dao = new DAOOrden();
+            Orden o = new Orden();
+            o.setId(id);
+            o.setIdCliente(idCliente);
+            o.setIdEmpleado(idEmpleado);
+            o.setFechaOrden(fechaOrden);
+            o.setFechaEntrega(fechaEntrega);
+            o.setMontoTotal(montoTotal);
+            dao.EditarOrden(o);
+        }catch(NumberFormatException | ParseException e){
+            System.out.println("Error al pasar dato: "+e.getMessage());
+        }
+            acceso = listar;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
             vista.forward(request, response);

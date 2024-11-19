@@ -27,6 +27,7 @@ public class DAOOrden implements InterfaceOrden{
             "Cliente.Apellido as apellidoCliente,\n" +
             "Empleado.Nombre as nombreEmpleado,\n" +
             "Empleado.Apellido as apellidoEmpleado,\n" +
+            "Orden.idOrden,\n" +    
             "Orden.idCliente,\n" +
             "Orden.idEmpleado,\n" +
             "Orden.FechaOrden,\n" +
@@ -48,6 +49,7 @@ public class DAOOrden implements InterfaceOrden{
             rs = ps.executeQuery();
             while(rs.next()){
                 Orden o = new Orden();
+                o.setId(rs.getInt("idOrden"));
                 o.setIdCliente(rs.getInt("idCliente"));
                 o.setIdEmpleado(rs.getInt("idEmpleado"));
                 o.setNombreCliente(rs.getString("nombreCliente") +
@@ -91,17 +93,56 @@ public class DAOOrden implements InterfaceOrden{
 
     @Override
     public Orden BuscarPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "select * from Orden where idOrden ="+ id;
+        Orden o = new Orden();
+        try{
+            ps = con.prepareCall(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+ 
+                o.setIdCliente(rs.getInt("idCliente"));
+                o.setIdEmpleado(rs.getInt("idEmpleado"));
+                o.setFechaOrden(rs.getDate("FechaOrden"));
+                o.setFechaEntrega(rs.getDate("FechaEntrega"));
+                o.setMontoTotal(rs.getFloat("MontoTotal")); 
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Error al buscar: "+e.getMessage());
+        }
+        return o;
     }
 
     @Override
     public boolean EditarOrden(Orden o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "update Orden set idCliente= '" +o.getIdCliente() + "', idEmpleado = '"
+        +o.getIdEmpleado() + "', FechaOrden = '" + o.getFechaOrden() + "', FechaEntrega = '"
+        + o.getFechaEntrega() + "', MontoTotal= '" + o.getMontoTotal() +"' where idOrden= "+o.getId();
+        try{
+            ps = con.prepareStatement(sql);
+            int Editado = ps.executeUpdate();
+            if(Editado>0){
+            return true;
+            }
+        }
+        catch(Exception e){
+            System.out.println("Error al actualizar" + e.getMessage());
+        }
+        return false;
     }
 
     @Override
     public boolean EliminarOrden(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "delete from Orden where idOrden =" + id;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }
+        catch(SQLException e){
+            System.out.println("Error al eliminar" + e.getMessage());
+            }
+        return false;
+        
     }
     
 }

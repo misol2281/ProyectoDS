@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Funciones adicionales (como confirmar borrado, editar, etc.)
+
 function confirmarBorrar(id) {
     if (confirm("¿Desea eliminar este registro?")) {
-        window.location.href = "CtrlTipoTrabajo?accion=Eliminar&id=" + id;
+        window.location.href = "CtrlOrden?accion=Eliminar&id=" + id;
     }
 }
 
@@ -52,13 +52,6 @@ function actualizarRegistro() {
 }
 
 function editarRegistro(id) {
-    window.location.href = "CtrlTipoTrabajo?accion=Enviar&id=" + id;
+    window.location.href = "CtrlOrden?accion=Enviar&id=" + id;
 }
 
-function mostrarLista() {
-    window.location.href = "vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp";
-}
-
-function datosEnviados() {
-    console.log("hola");
-}
