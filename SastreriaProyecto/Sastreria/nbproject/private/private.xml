@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaOrden/listarOrden.jsp</file>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/script/scriptOrden/Orden.js</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/script/scriptOrden/EditarOrden.js</file>
             <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlOrden.java</file>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/Cliente.java</file>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/Empleados.java</file>
-            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaOrden/agregarOrden.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaOrden/editarOrden.jsp</file>
+            <file>file:/Users/Cristian/Desktop/DS/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoTrabajo/listarTipoTrabajo.jsp</file>
         </group>
     </open-files>
 </project-private>
