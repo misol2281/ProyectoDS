@@ -4,9 +4,16 @@
         <servlet-name>CtrlTipoTrabajo</servlet-name>
         <servlet-class>Controlador.CtrlTipoTrabajo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CtrlDetOrden</servlet-name>
+        <servlet-class>Controlador.CtrlDetOrden</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CtrlTipoTrabajo</servlet-name>
         <url-pattern>/CtrlTipoTrabajo</url-pattern>
     </servlet-mapping>
-   
+    <servlet-mapping>
+        <servlet-name>CtrlDetOrden</servlet-name>
+        <url-pattern>/CtrlDetOrden</url-pattern>
+    </servlet-mapping>
 </web-app>

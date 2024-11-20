@@ -9,8 +9,11 @@ package Entidad;
  * @author Cristian
  */
 public class DetalleOrden {
+    private int id;
     private int idEstiloRopa;
+    private String estiloRopa;
     private int idTipoTrabajo;
+    private String tipoTrabajo;
     private int idOrden;
     private String instrucciones;
     private float subTotal;
@@ -24,6 +27,30 @@ public class DetalleOrden {
         this.idOrden = idOrden;
         this.instrucciones = instrucciones;
         this.subTotal = subTotal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public String getEstiloRopa() {
+        return estiloRopa;
+    }
+
+    public void setEstiloRopa(String estiloRopa) {
+        this.estiloRopa = estiloRopa;
+    }
+
+    public String getTipoTrabajo() {
+        return tipoTrabajo;
+    }
+
+    public void setTipoTrabajo(String tipoTrabajo) {
+        this.tipoTrabajo = tipoTrabajo;
     }
 
     public int getIdEstiloRopa() {
