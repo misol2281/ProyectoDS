@@ -1,3 +1,6 @@
+<%@page import="Entidad.Cargo"%>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.CargoDAO"%>
 <%@page import="Entidad.Empleados"%>
 <%@page import="Modelo.EmpleadoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,7 +43,7 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Genero:</label>
-                        <select id="genero" name="genero" value="<%= e.getGenero() %>">
+                        <select id="genero" name="genero" class="form-select" value="<%= e.getGenero() %>">
                         <option value="Masculino">M</option>
                         <option value="Femenino">F</option>
                     </select><br>
@@ -55,13 +58,25 @@
                         <option value="Acompallado">Acompallado</option>
                         </select>
                     </div>                    
-                    <div class="col-md-9">
+                    <div class="col-md-7">
                         <label class="form-label">Correo:</label>
                         <input type="text" class="form-control" name="txtCorreo" placeholder="nombre.apellido@sastreria.com" value="<%= e.getCorreo() %>"><br>
                     </div>
-                    <div class="col-md-9">
-                        <label class="form-label">IdCargo:</label>
-                        <input type="text" class="form-control" name="txtCargo" placeholder="id" value="<%= e.getIdCargo() %>"><br>
+                    <div class="col-md-7">
+                        <label class="form-label">Cargo:</label> 
+                        <select id="txtCargo" class="form-select" name="txtCargo" required>
+                            <%          
+                                CargoDAO cargoDAO = new CargoDAO(); 
+                                List<Cargo> cargos = cargoDAO.listar();  
+                            %>
+                            <%
+                                for (Cargo c : cargos) {
+                            %>
+                                <option value="<%= c.getId() %>"><%= c.getCargo() %></option>
+                            <%
+                                }
+                            %>
+                        </select>
                     </div>
                     <input type="hidden" name="txtid" value="<%= e.getId() %>">
                     <div class="col-12">
