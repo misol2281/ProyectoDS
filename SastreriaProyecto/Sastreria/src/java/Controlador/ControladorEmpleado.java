@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Entidad.Cargo;
 import Modelo.EmpleadoDAO;
 import Entidad.Empleados;
+import Modelo.CargoDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.sql.Date;
 import java.io.IOException;
@@ -14,6 +16,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ControladorEmpleado extends HttpServlet {
@@ -67,7 +71,7 @@ public class ControladorEmpleado extends HttpServlet {
         String action = request.getParameter("accion");
         if(action.equalsIgnoreCase("listar")){
             acceso = listar;
-        }else if(action.equalsIgnoreCase("add")){
+        }else if(action.equalsIgnoreCase("add")){ 
             acceso = add;
         }else if(action.equalsIgnoreCase("Agregar")){
             String nombre = request.getParameter("txtNombre");
@@ -91,7 +95,7 @@ public class ControladorEmpleado extends HttpServlet {
             edao.add(e);
             acceso = listar;
         }else if(action.equalsIgnoreCase("editar")){
-            request.setAttribute("idemp", request.getParameter("id"));
+            request.setAttribute("idemp", request.getParameter("id"));          
             acceso = edit;
         }else if(action.equalsIgnoreCase("Actualizar")){
             id = Integer.parseInt(request.getParameter("txtid"));
