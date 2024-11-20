@@ -1,3 +1,6 @@
+<%@page import="Entidad.Cargo"%>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.CargoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,13 +52,26 @@
                         <option value="Acompallado">Acompallado</option>
                         </select>
                     </div>                        
-                    <div class="col-md-9">
+                    <div class="col-md-7">
                         <label class="form-label">Correo:</label>
                         <input type="text" class="form-control" name="txtCorreo" placeholder="nombre.apellido@sastreria.com"><br>
                     </div>
-                    <div class="col-md-9">
-                        <label class="form-label">IdCargo:</label>                        
-                        <input type="text" class="form-control" name="txtCargo" placeholder="id">
+                    <div class="col-md-7">
+                        <label class="form-label">Cargo:</label> 
+                        <select id="txtCargo" name="txtCargo" class="form-select" required>
+                            <%          
+                                CargoDAO cargoDAO = new CargoDAO(); 
+                                List<Cargo> cargos = cargoDAO.listar();  
+                            %>
+                            <%
+                                for (Cargo c : cargos) {
+                            %>
+                                <option value="<%= c.getId() %>"><%= c.getCargo() %></option>
+                            <%
+                                }
+                            %>
+                        </select>
+
                     </div>                        
                     <div class="col-12">
                         <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
