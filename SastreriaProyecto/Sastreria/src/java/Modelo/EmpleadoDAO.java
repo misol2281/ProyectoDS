@@ -1,6 +1,7 @@
 package Modelo;
 
 import Config.Conexion;
+import Entidad.Cargo;
 import Entidad.Empleados;
 import Interfaces.CRUDEmpleado;
 import java.util.ArrayList;
