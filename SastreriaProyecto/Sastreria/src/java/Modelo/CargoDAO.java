@@ -38,6 +38,8 @@ public class CargoDAO implements CRUDCargo {
         return list;
     }
 
+    
+    
     @Override
     public Cargo list(int id) {
         String sql = "Select * from Cargos where idCargo="+id;
