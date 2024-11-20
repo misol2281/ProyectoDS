@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlEstiloRopa.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Modelo/DAOMedida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/index.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaEstiloRopa/agregarEstiloRopa.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoMedida/agregarTipoMedida.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaMedida/agregarMedida.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlTipoMedida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Interfaces/InterfaceTipoMedida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Interfaces/InterfaceMedida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Modelo/DAOEstiloRopa.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Interfaces/InterfaceEstiloRopa.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaMedida/listarMedida.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/Medida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Controlador/CtrlMedida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Modelo/DAOTipoMedida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaEstiloRopa/listarEstiloRopa.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/TipoMedida.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaEstiloRopa/editarEstiloRopa.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/web/vistas/vistaTipoMedida/listarTipoMedida.jsp</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Config/Conexion.java</file>
+            <file>file:/C:/Users/Eduardo%20Morales/Documents/GitHub/ProyectoDS/SastreriaProyecto/Sastreria/src/java/Entidad/EstiloRopa.java</file>
+        </group>
+    </open-files>
+</project-private>
