@@ -1,5 +1,10 @@
 
 
+<%@page import="Entidad.Material"%>
+<%@page import="Modelo.MaterialDAO"%>
+<%@page import="Entidad.UnidadMedida"%>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.UnidadMedidaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,15 +22,38 @@
                 <form class="row g-3" action="ControladorMaterialUsar">                    
                     <div class="col-md-4">
                         <label class="form-label">Material:</label>
-                        <input type="text" class="form-control" name="txtidMaterial" placeholder="Material">
+                        <select id="txtidMaterial" class="form-select" name="txtidMaterial" required> 
+                            <%
+                                MaterialDAO matdao = new MaterialDAO();
+                                List<Material> material = matdao.listar();
+                            %>
+                            <%
+                                for (Material m : material){
+                            %>
+                            <option value="<%= m.getId() %>"><%= m.getMaterial() %></option>
+                            <%}%>
+                        </select>
+                        
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Detalle de orden:</label>
+                        <label class="form-label">Detalle de orden:</label> <!<!-- HACER SELECT -->                        
                         <input type="text" class="form-control" name="txtidDetalleOrden" placeholder="Detalle Orden">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Unidad de Medida:</label>
-                        <input type="text" class="form-control" name="txtidUnidadMedida" placeholder="Unidad de Medida">
+                        <select id="txtidUnidadMedida" class="form-select" name="txtidUnidadMedida" required>
+                            <%
+                                UnidadMedidaDAO umdao = new UnidadMedidaDAO();
+                                List<UnidadMedida> unimedi = umdao.listar();
+                            %>
+                            <%
+                                for (UnidadMedida um : unimedi){
+                            %>
+                            <option value="<%= um.getId() %>"><%= um.getUnidadMedida() %></option>
+                            <%
+                                }
+                            %>
+                        </select>                        
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Caracteristicas de Material:</label>
