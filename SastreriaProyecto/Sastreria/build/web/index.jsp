@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 29 oct 2024, 3:30:28 p. m.
-    Author     : Ada
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,5 +14,8 @@
         <a href="ControladorEmpleado?accion=listar">Lista de Empleados</a>
         <a href="ControladorCargo?accion=listar">Lista de Cargos</a>
         <a href="ControladorRoles?accion=listar">Lista de Roles</a>
+        <a href="CtrlEstiloRopa?accion=listar">Listar Estilo de Ropa</a>
+        <a href="CtrlMedida?accion=listar">Listar Medida</a><br>  
+        <a href="CtrlTipoMedida?accion=listar">Listar Tipo de Medida</a><br>
     </body>
 </html>
