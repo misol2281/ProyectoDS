@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 
 public class ControladorCargo extends HttpServlet {
@@ -67,6 +68,10 @@ public class ControladorCargo extends HttpServlet {
         if(action.equalsIgnoreCase("listar")){
             acceso = listar;
         }else if(action.equalsIgnoreCase("add")){
+            CargoDAO cargoDAO = new CargoDAO();
+            List<Cargo> listaCargos = cargoDAO.listar();            
+             System.out.println("Lista de cargos en el servlet: ");  
+            request.setAttribute("cargos", listaCargos);
             acceso = add;
         }else if(action.equalsIgnoreCase("Agregar")){
             String cargo = request.getParameter("txtCargo");
@@ -75,6 +80,9 @@ public class ControladorCargo extends HttpServlet {
             acceso = listar;
         }else if(action.equalsIgnoreCase("editar")){            
             request.setAttribute("idcar", request.getParameter("id"));
+            CargoDAO cargoDAO = new CargoDAO();
+            List<Cargo> listaCargos = cargoDAO.listar();
+            request.setAttribute("cargos", listaCargos);
             acceso = edit;
         }else if(action.equalsIgnoreCase("Actualizar")){
             id = Integer.parseInt(request.getParameter("txtid"));
