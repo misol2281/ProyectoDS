@@ -8,28 +8,41 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script>
+            function imprimir{
+                window.print();
+            }
+        </script>
+        <style>
+            @media print{
+                .accion, .noprint{
+                    display:none;
+                }
+            }
+        </style>
         <title>Lista MaterialUsar</title>
     </head>
     <body>
         <div class="container">
             <h1 class="text-center">Lista MaterialUsar</h1>
-            
+            <div class="noprint">
                 <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
-                <a class="btn btn-primary" href="ControladorMaterialUsar?accion=add">Agregar Material</a>
+                <a class="btn btn-primary"  href="ControladorMaterialUsar?accion=add">Agregar Material</a>
+                <button class="btn btn-primary" onclick="javascript:window.print()">Informe</button>
+            </div>
                 <br>
                 <br>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
-                        
-                        <th class="text-center">Material</th>
-                        <th class="text-center">IDDetalleOrden</th>
-                        <th class="text-center">UnidadMedida</th>
-                        <th class="text-center">Caracteristicas Material</th>
-                        <th class="text-center">Cantidad</th>
-                        <th class="text-center">Precio</th>
-                        <th class="text-center">SubTotal</th>
-                        <th class="text-center">ACCIONES</th>
+                    <tr class="text-center">                        
+                        <th>Material</th>
+                        <th>IDDetalleOrden</th>
+                        <th>UnidadMedida</th>
+                        <th>Caracteristicas Material</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>SubTotal</th>
+                        <th class="accion">ACCIONES</th>
                     </tr>
                 </thead>
                 <%
@@ -41,16 +54,15 @@
                         mtu = iter.next();    
                 %>
                 <tbody>
-                    <tr>
-                        
-                        <td class="text-center"><%= mtu.getMaterial() %></td>
-                        <td class="text-center"><%= mtu.getIdDetalleOrden() %></td>
-                        <td class="text-center"><%= mtu.getUnidadMedida() %></td>
-                        <td class="text-center"><%= mtu.getCaracteristicas() %></td>
-                        <td class="text-center"><%= mtu.getCantidad() %></td>
-                        <td class="text-center"><%= mtu.getPrecio() %></td>
-                        <td class="text-center"><%= mtu.getSubTotal() %></td>
-                        <td class="text-center">
+                    <tr class="text-center">                        
+                        <td><%= mtu.getMaterial() %></td>
+                        <td><%= mtu.getIdDetalleOrden() %></td>
+                        <td><%= mtu.getUnidadMedida() %></td>
+                        <td><%= mtu.getCaracteristicas() %></td>
+                        <td><%= mtu.getCantidad() %></td>
+                        <td><%= mtu.getPrecio() %></td>
+                        <td><%= mtu.getSubTotal() %></td>
+                        <td class="noprint">
                             <a class="btn btn-outline-primary" href="ControladorMaterialUsar?accion=editar&id=<%= mtu.getId() %>">Editar</a>
                             <a class="btn btn-outline-primary" href="ControladorMaterialUsar?accion=eliminar&id=<%= mtu.getId() %>">Eliminar</a>
                         </td>
