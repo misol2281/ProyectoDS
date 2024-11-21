@@ -9,29 +9,64 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>ListarEmpleados</title>
+        <script>
+            function imprimir{
+                window.print();
+            }
+        </script>
+        <style>
+            @media print{
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 0;
+                }
+                th, td {
+                    border: 1px solid black;
+                    padding: 8px;
+                    text-align: left;
+                    word-wrap: break-word; /* Asegura que el texto largo se ajuste */
+                }
+                body {
+                    margin: 0;
+                }
+                 .container {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%; 
+                }
+                 @page {
+                    margin: 0;
+                }
+                .accion, .noimp, .noip{
+                    display:none;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="container">
             <h1 class="text-center">Lista de Empleados</h1>
-            
-            <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
-            <a class="btn btn-primary" href="ControladorEmpleado?accion=add">Agregar Empleado</a>
+            <div class="noimp">
+                <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
+                <a class="btn btn-primary" href="ControladorEmpleado?accion=add">Agregar Empleado</a>
+                <button class="btn btn-primary" onclick="javascript:window.print()">Imprimir</button>
+            </div>
             <br> 
             <br>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
-                        
-                        <th class="text-center">NOMBRES</th>
-                        <th class="text-center">APELLIDOS</th>
-                        <th class="text-center">DUI</th>
-                        <th class="text-center">FECHA NACIMIENTO</th>
-                        <th class="text-center">TELEFONO</th>
-                        <th class="text-center">GENERO</th>
-                        <th class="text-center">ESTADO CIVIL</th>
-                        <th class="text-center">CORREO</th>
-                        <th class="text-center">CARGO</th>
-                        <th class="text-center">ACCIONES</th>
+                    <tr class="text-center">                        
+                        <th>NOMBRES</th>
+                        <th>APELLIDOS</th>
+                        <th>DUI</th>
+                        <th>FECHA NACIMIENTO</th>
+                        <th>TELEFONO</th>
+                        <th>GENERO</th>
+                        <th>ESTADO CIVIL</th>
+                        <th>CORREO</th>
+                        <th>CARGO</th>
+                        <th class="accion">ACCIONES</th>
                     </tr>
                 </thead>
                 <%
@@ -44,18 +79,18 @@
                     
                 %>
                 <tbody>
-                    <tr>
+                    <tr class="text-center">
                         
-                        <td class="text-center"><%= emp.getNombre() %></td>
-                        <td class="text-center"><%= emp.getApellido() %></td>
-                        <td class="text-center"><%= emp.getDUI() %></td>
-                        <td class="text-center"><%= emp.getFechaNacimiento() %></td>
-                        <td class="text-center"><%= emp.getTelefono() %></td>
-                        <td class="text-center"><%= emp.getGenero() %></td>
-                        <td class="text-center"><%= emp.getEstadoCivil() %></td>
-                        <td class="text-center"><%= emp.getCorreo() %></td>
-                        <td class="text-center"><%= emp.getCargo() %></td>
-                        <td class="text-center">
+                        <td><%= emp.getNombre() %></td>
+                        <td><%= emp.getApellido() %></td>
+                        <td><%= emp.getDUI() %></td>
+                        <td><%= emp.getFechaNacimiento() %></td>
+                        <td><%= emp.getTelefono() %></td>
+                        <td><%= emp.getGenero() %></td>
+                        <td><%= emp.getEstadoCivil() %></td>
+                        <td><%= emp.getCorreo() %></td>
+                        <td><%= emp.getCargo() %></td>
+                        <td class="noip">
                             <div class="col-10">
                                 <a class="btn btn-outline-primary" href="ControladorEmpleado?accion=editar&id=<%= emp.getId() %>">Editar</a>
                                 <a class="btn btn-outline-primary" href="ControladorEmpleado?accion=eliminar&id=<%= emp.getId() %>">Eliminar</a>
@@ -63,8 +98,7 @@
                         </td>
                     </tr>
                     <%}%>
-                </tbody>
-                
+                </tbody>                
             </table>
         </div>
     </body>
