@@ -18,6 +18,8 @@
         <a href="CtrlMedida?accion=listar">Listar Medida</a><br>
         
         <a href="CtrlTipoMedida?accion=listar">Listar Tipo de Medida</a><br>
+        
+        <a href="CtrlUsuario?accion=listar">Listar Usuario</a><br>
        
     </body>
 </html>

@@ -14,12 +14,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Lista Estilo Ropa</title>
+        <script>
+            function imprimir(){
+                window.print();
+                
+            }
+        </script>
+        <style>
+            @media print{
+                .noimpr, .accion, .noimprimir{
+                    display:none;
+                }
+            }
+            
+        </style>
+        
     </head>
     <body>
+        <button class="button btn btn-primary" onclick="javascript: window.print()">Informe</button>
         <div>
         <h1>Estilo de Ropa</h1>
         <a href="CtrlEstiloRopa?accion=agregarEstiloRopa">Agregar Estilo Ropa</a>
+        <button class="button btn btn-primary" onclick="javascript: window.print()">Informe</button>
+        
 
         <table border="1">
             <thead>
@@ -47,6 +65,7 @@
                         
                         <a href="CtrlEstiloRopa?accion=EditarEstiloRopa&id=<%= er.getId()%>">Editar</a>
                         <a href="CtrlEstiloRopa?accion=EliminarEstiloRopa&id=<%= er.getId()%>">Eliminar</a>
+                       
                     </td>
                 </tr>
                 <%}%>

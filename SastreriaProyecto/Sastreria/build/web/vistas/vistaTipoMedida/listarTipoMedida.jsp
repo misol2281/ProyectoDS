@@ -14,12 +14,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Lista Tipo de Medida</title>
+         <script>
+            function imprimir(){
+                window.print();
+                
+            }
+        </script>
+        <style>
+            @media print{
+                .noimpr, .accion, .noimprimir{
+                    display:none;
+                }
+            }
+            
+        </style>
     </head>
     <body>
         <div>
         <h1>Tipo de Medida</h1>
         <a href="CtrlTipoMedida?accion=agregarTipoMedida">Agregar Tipo de Medida</a>
+         <button class="button btn btn-primary" onclick="javascript: window.print()">Informe</button>
 
         <table border="1">
             <thead>
