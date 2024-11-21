@@ -1,5 +1,3 @@
-
-
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="Entidad.Cliente"%>
@@ -11,24 +9,37 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>Lista Clientes</title>
+        <script>
+            function imprimir(){
+                window.print();
+            }
+        </script>
+        <style>
+            @media print{
+                .noimpr, .accion, .noimprimir{
+                    display:none;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="container">
             <h1 class="text-center">Lista de Clientes</h1>
-
-            <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
-            
+            <div class="noimpr">
+            <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>            
             <a class="btn btn-primary" href="ControladorCliente?accion=add">Agregar Cliente</a>
+            <button class="button btn btn-primary" onclick="javascript:window.print()">Informe</button>
+            </div>
             <br>
             <br>    
             <table class="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         
-                        <th class="text-center">NOMBRE</th>
-                        <th class="text-center">APELLIDO</th>
-                        <th class="text-center">TELEFONO</th>
-                        <th class="text-center">ACCIONES</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <th>TELEFONO</th>
+                        <th class="accion">ACCIONES</th>
                     </tr>
                 </thead>
                 <%
@@ -41,12 +52,12 @@
                     
                 %>
                 <tbody>
-                    <tr>
+                    <tr class="text-center">
                         
-                        <td class="text-center"><%= cli.getNombre() %></td>
-                        <td class="text-center"><%= cli.getApellido() %></td>
-                        <td class="text-center"><%= cli.getTelefono() %></td>
-                        <td class="text-center">
+                        <td><%= cli.getNombre() %></td>
+                        <td><%= cli.getApellido() %></td>
+                        <td><%= cli.getTelefono() %></td>
+                        <td class="noimprimir">
                             <a class="btn btn-outline-primary" href="ControladorCliente?accion=editar&id=<%= cli.getId()%>">Editar</a>
                             <a class="btn btn-outline-primary" href="ControladorCliente?accion=eliminar&id=<%= cli.getId()%>">Eliminar</a>
                         </td>
