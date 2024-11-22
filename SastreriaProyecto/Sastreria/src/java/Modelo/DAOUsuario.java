@@ -28,11 +28,10 @@ public class DAOUsuario implements InterfaceUsuario{
            rs = ps.executeQuery();
            while(rs.next()){
                Usuario u = new Usuario();
-               u.setId(rs.getInt("idUsuario"));
-               u.setUsuario(rs.getString("Usuario"));
-               u.setCargo(rs.getString("Cargo"));
-               u.setRol(rs.getString("Rol"));
-               u.setContraseña("Contraseña");
+               u.setIdUsuario(rs.getInt("idUsuario"));
+               u.setContrasenia(rs.getString("contrasenia"));
+               u.setIdRol(rs.getInt("Rol"));
+               u.setIdEmpleado(rs.getInt("idEmpleado"));
                lstUsuario.add(u);
            }
        }
@@ -51,10 +50,10 @@ public class DAOUsuario implements InterfaceUsuario{
            ps = con.prepareStatement(sql);
            rs = ps.executeQuery();
            while(rs.next()){
-               us.setUsuario(rs.getString("Usuario"));
-               us.setCargo(rs.getString("Cargo"));
-               us.setRol(rs.getString("Rol"));
-               us.setContraseña("Contraseña");
+               us.setIdUsuario(rs.getInt("idUsuario"));
+               us.setContrasenia(rs.getString("contrasenia"));
+               us.setIdRol(rs.getInt("Rol"));
+               us.setIdEmpleado(rs.getInt("IdEmpleado"));
                
               
            }

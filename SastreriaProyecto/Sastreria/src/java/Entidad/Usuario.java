@@ -10,55 +10,45 @@ package Entidad;
  */
 public class Usuario {
 
-   
-    int id;
-    String usuario;
-    String cargo;
-    String rol;
-    String contraseña;
-
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    // Atributos
+    int idUsuario;
+    String contrasenia;
+    int idRol;
+    int idEmpleado;
 
    
-    public String getUsuario() {
-        return usuario;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-   
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-   
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    
+    public int getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
+    }
+
+    // idEmpleado
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 }

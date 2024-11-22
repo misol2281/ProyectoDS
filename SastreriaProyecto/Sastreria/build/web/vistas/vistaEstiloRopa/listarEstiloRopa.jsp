@@ -35,6 +35,7 @@
         <button class="button btn btn-primary" onclick="javascript: window.print()">Informe</button>
         <div>
         <h1>Estilo de Ropa</h1>
+        <a class ="btn btn -primary" href ="menu.jsp">Regresar a menu</a>
         <a href="CtrlEstiloRopa?accion=agregarEstiloRopa">Agregar Estilo Ropa</a>
         <button class="button btn btn-primary" onclick="javascript: window.print()">Informe</button>
         

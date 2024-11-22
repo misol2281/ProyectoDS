@@ -44,8 +44,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Usuario</th>
-                    <th>Rol</th>
-                    <th>Cargo</th>
+                    <th>Contraseña</th>
+                    <th>id Rol</th>
+                    <th>idEmpleado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -61,10 +62,11 @@
                 <tbody>
                          
                 <tr>
-                    <td><%= u.getId() %></td>
-                    <td><%= u.getUsuario() %></td>
-                    <td><%= u.getRol() %></td>
-                    <td><%= u.getCargo() %></td>
+                    <td><%= u.getIdUsuario() %></td>
+                    <td><%= u.getusuario() %></td>
+                    <td><%= u.getcontrasenia() %></td>
+                    <td><%= u.getidRol() %></td>
+                    <td><%= u.getidEmpleado() %></td>
                     <td>
                         
                         <a href="CtrlUsuario?accion=EditarUsuario&id=<%= u.getId()%>">Editar</a>
