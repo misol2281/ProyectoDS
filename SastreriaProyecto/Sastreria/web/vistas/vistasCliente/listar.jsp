@@ -26,7 +26,7 @@
         <div class="container">
             <h1 class="text-center">Lista de Clientes</h1>
             <div class="noimpr">
-            <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>            
+            <a class="btn btn-primary" href="menu.jsp">Regresar a Menu</a>            
             <a class="btn btn-primary" href="ControladorCliente?accion=add">Agregar Cliente</a>
             <button class="button btn btn-primary" onclick="javascript:window.print()">Informe</button>
             </div>
