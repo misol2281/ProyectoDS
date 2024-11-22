@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
@@ -15,7 +16,8 @@
         <a href="ControladorCargo?accion=listar">Lista de Cargos</a>
         <a href="ControladorRoles?accion=listar">Lista de Roles</a>
         <a href="CtrlEstiloRopa?accion=listar">Listar Estilo de Ropa</a>
-        <a href="CtrlMedida?accion=listar">Listar Medida</a><br>  
-        <a href="CtrlTipoMedida?accion=listar">Listar Tipo de Medida</a><br>
+        <a href="CtrlMedida?accion=listar">Listar Medida</a>
+        <a href="CtrlTipoMedida?accion=listar">Listar Tipo de Medida</a>
+        <a href="CtrlUsuario?accion=listar">Listar Usuario</a><br>
     </body>
 </html>

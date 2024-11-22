@@ -3,9 +3,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
+
         <a href="CtrlTipoTrabajo?accion=listar">Listar Tipos de Trabajos</a>
         <a href="CtrlOrden?accion=listar">Listar Ordenes</a>
         <a href="CtrlDetOrden?accion=listar">Listar Detalles Orden</a>
@@ -17,5 +19,7 @@
         <a href="CtrlEstiloRopa?accion=listar">Listar Estilo de Ropa</a>
         <a href="CtrlMedida?accion=listar">Listar Medida</a>
         <a href="CtrlTipoMedida?accion=listar">Listar Tipo de Medida</a>
+        <a href="CtrlUsuario?accion=listar">Listar Usuario</a><br>
+       
     </body>
 </html>
