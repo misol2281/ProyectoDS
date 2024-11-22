@@ -21,11 +21,11 @@
                 <h1>Editar Cliente</h1>
                 <form action="ControladorCliente">
                     <div class="col-md-6">
-                        <label for="formGroupExampleInput" class="form-label">Nombre:</label><br>
+                        <label class="form-label">Nombre:</label><br>
                         <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="<%= c.getNombre() %>"><br>
-                        <label for="formGroupExampleInput" class="form-label">Apellido:</label><br>
+                        <label class="form-label">Apellido:</label><br>
                         <input type="text" class="form-control" name="txtApellido" placeholder="Apellido" value="<%= c.getApellido() %>"><br>
-                        <label for="formGroupExampleInput" class="form-label">Telefono:</label><br>
+                        <label class="form-label">Telefono:</label><br>
                         <input type="text" class="form-control" name="txtTelefono" placeholder="0000-0000" value="<%= c.getTelefono() %>"><br>
                     </div>
                     <input type="hidden" name="txtid" value="<%= c.getId() %>"><br>
