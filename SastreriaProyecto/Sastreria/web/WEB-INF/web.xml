@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>CtrlTipoTrabajo</servlet-name>
+        <servlet-class>Controlador.CtrlTipoTrabajo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CtrlDetOrden</servlet-name>
+        <servlet-class>Controlador.CtrlDetOrden</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <servlet-class>Controlador.ControladorMaterial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <servlet-class>Controlador.ControladorUnidadMedida</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CtrlTipoTrabajo</servlet-name>
+        <url-pattern>/CtrlTipoTrabajo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlDetOrden</servlet-name>
+        <url-pattern>/CtrlDetOrden</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <url-pattern>/ControladorMaterial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <url-pattern>/ControladorUnidadMedida</url-pattern>
+    </servlet-mapping>
+</web-app>
