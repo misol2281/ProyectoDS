@@ -48,7 +48,7 @@
         <div class="container">
             <h1 class="text-center">Lista de Empleados</h1>
             <div class="noimp">
-                <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
+                <a class="btn btn-primary" href="menu.jsp">Regresar a Menu</a>
                 <a class="btn btn-primary" href="ControladorEmpleado?accion=add">Agregar Empleado</a>
                 <button class="btn btn-primary" onclick="javascript:window.print()">Imprimir</button>
             </div>
