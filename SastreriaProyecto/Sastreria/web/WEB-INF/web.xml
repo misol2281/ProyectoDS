@@ -16,6 +16,10 @@
         <servlet-name>ControladorUnidadMedida</servlet-name>
         <servlet-class>Controlador.ControladorUnidadMedida</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Controlador.Login</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CtrlTipoTrabajo</servlet-name>
         <url-pattern>/CtrlTipoTrabajo</url-pattern>
@@ -31,5 +35,9 @@
     <servlet-mapping>
         <servlet-name>ControladorUnidadMedida</servlet-name>
         <url-pattern>/ControladorUnidadMedida</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
 </web-app>

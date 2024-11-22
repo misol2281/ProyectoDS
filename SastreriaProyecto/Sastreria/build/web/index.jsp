@@ -1,23 +1,23 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <a href="CtrlTipoTrabajo?accion=listar">Listar Tipos de Trabajos</a>
-        <a href="CtrlOrden?accion=listar">Listar Ordenes</a>
-        <a href="CtrlDetOrden?accion=listar">Listar Detalles Orden</a>
-        <a href="ControladorCliente?accion=listar">Lista de Clientes</a>
-        <a href="ControladorMaterialUsar?accion=listar">Lista de Material a Usar</a>
-        <a href="ControladorEmpleado?accion=listar">Lista de Empleados</a>
-        <a href="ControladorCargo?accion=listar">Lista de Cargos</a>
-        <a href="ControladorRoles?accion=listar">Lista de Roles</a>
-        <a href="CtrlEstiloRopa?accion=listar">Listar Estilo de Ropa</a>
-        <a href="CtrlMedida?accion=listar">Listar Medida</a>
-        <a href="CtrlTipoMedida?accion=listar">Listar Tipo de Medida</a>
-        <a href="CtrlUsuario?accion=listar">Listar Usuario</a><br>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Sastreria/css/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Iniciar Sesión</h2>
+    <form action="Login" method="POST">
+        <label for="usu">Usuario:</label>
+        <input type="email" name="usu" id="usu" required><br><br>
+        <label for="contra">Contraseña:</label>
+        <input type="password" name="contra" id="contra" required><br><br>
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <% if (request.getAttribute("error") != null) { %>
+        <p style="color: red;"><%= request.getAttribute("error") %></p>
+    <% } %>
+</body>
 </html>

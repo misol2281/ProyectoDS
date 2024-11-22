@@ -20,7 +20,7 @@
                 <h1>Editar Cargo</h1>
                 <form action="ControladorCargo">
                     <div class="col-md-6">
-                        <label for="formGroupExampleInput" class="form-label">Cargo:</label><br>
+                        <label class="form-label">Cargo:</label><br>
                         <input type="text" class="form-control" name="txtCargo" placeholder="Cargo" value="<%= c.getCargo() %>"> <br>
                     </div>
 

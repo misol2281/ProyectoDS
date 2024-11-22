@@ -12,9 +12,18 @@ public class Usuario {
 
     // Atributos
     int idUsuario;
+    String usuario;
     String contrasenia;
     int idRol;
     int idEmpleado;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
    
     public int getIdUsuario() {

@@ -8,6 +8,18 @@
         <servlet-name>CtrlDetOrden</servlet-name>
         <servlet-class>Controlador.CtrlDetOrden</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <servlet-class>Controlador.ControladorMaterial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <servlet-class>Controlador.ControladorUnidadMedida</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Controlador.Login</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CtrlTipoTrabajo</servlet-name>
         <url-pattern>/CtrlTipoTrabajo</url-pattern>
@@ -15,5 +27,17 @@
     <servlet-mapping>
         <servlet-name>CtrlDetOrden</servlet-name>
         <url-pattern>/CtrlDetOrden</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorMaterial</servlet-name>
+        <url-pattern>/ControladorMaterial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorUnidadMedida</servlet-name>
+        <url-pattern>/ControladorUnidadMedida</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -40,6 +40,30 @@ public class DAOUsuario implements InterfaceUsuario{
            }
        return lstUsuario;
     }
+    
+    public Usuario validarUsuario(String usu, String contra) {
+        String sql = "SELECT * FROM Usuarios WHERE Usuario = ? AND Contra = ?";
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usu);
+            ps.setString(2, contra);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setIdUsuario(rs.getInt("idUsuario"));
+                usuario.setUsuario(rs.getString("Usuario"));
+                usuario.setContrasenia(rs.getString("Contra"));
+                usuario.setIdEmpleado(rs.getInt("idRol"));
+                usuario.setIdRol(rs.getInt("idEmpleado"));
+                return usuario;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al validar usuario: " + e.getMessage());
+        }
+        return null;
+    }
 
   
     @Override
