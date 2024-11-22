@@ -1,8 +1,8 @@
 package Entidad;
 
 public class Cargo {
-    int id;
-    String Cargo;
+    private int id;
+    private String Cargo;
 
     public Cargo() {
     }

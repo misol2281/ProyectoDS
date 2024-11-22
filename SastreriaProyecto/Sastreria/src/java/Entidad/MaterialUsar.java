@@ -2,22 +2,26 @@ package Entidad;
 
 
 public class MaterialUsar {
-    int id;
-    int idMaterial;
-    int idDetalleOrden;
-    int idUnidadMedida;
-    String Caracteristicas;
-    int Cantidad;
-    float Precio;
-    float SubTotal;
+    private int id;
+    private int idMaterial;
+    private String Material;
+    private int idDetalleOrden;
+    private int idUnidadMedida;
+    private String UnidadMedida;
+    private String Caracteristicas;
+    private int Cantidad;
+    private float Precio;
+    private float SubTotal;
 
     public MaterialUsar() {
     }
 
-    public MaterialUsar(int idMaterial, int idDetalleOrden, int idUnidadMedida, String Caracteristicas, int Cantidad, float Precio, float SubTotal) {
+    public MaterialUsar(int idMaterial, String Material, int idDetalleOrden, int idUnidadMedida, String UnidadMedida, String Caracteristicas, int Cantidad, float Precio, float SubTotal) {
         this.idMaterial = idMaterial;
+        this.Material = Material;
         this.idDetalleOrden = idDetalleOrden;
         this.idUnidadMedida = idUnidadMedida;
+        this.UnidadMedida = UnidadMedida;
         this.Caracteristicas = Caracteristicas;
         this.Cantidad = Cantidad;
         this.Precio = Precio;
@@ -40,6 +44,14 @@ public class MaterialUsar {
         this.idMaterial = idMaterial;
     }
 
+    public String getMaterial() {
+        return Material;
+    }
+
+    public void setMaterial(String Material) {
+        this.Material = Material;
+    }
+
     public int getIdDetalleOrden() {
         return idDetalleOrden;
     }
@@ -54,6 +66,14 @@ public class MaterialUsar {
 
     public void setIdUnidadMedida(int idUnidadMedida) {
         this.idUnidadMedida = idUnidadMedida;
+    }
+
+    public String getUnidadMedida() {
+        return UnidadMedida;
+    }
+
+    public void setUnidadMedida(String UnidadMedida) {
+        this.UnidadMedida = UnidadMedida;
     }
 
     public String getCaracteristicas() {

@@ -21,17 +21,20 @@ public class MaterialUsarDAO implements CRUDMaterialUsar{
     @Override
     public List listar() {
         ArrayList<MaterialUsar>list = new ArrayList<>();
-        String sql = "select * from MaterialUsar";
+        String sql = "Select mu.idMaterialUsar, Material.Material AS Material, mu.idDetalleOrden, UnidadMedida.UnidadMedida AS UnidadMedida,\n" +
+                     "mu.CaracteristicasMaterial, mu.Cantidad, mu.Precio, mu.SubTotal\n" +
+                     "from MaterialUsar as mu inner join Material on mu.idMaterial = Material.idMaterial\n" +
+                     "inner join UnidadMedida on mu.idUnidadMedida = UnidadMedida.idUnidadMedida";
         try{
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 MaterialUsar mtu = new MaterialUsar();
-                mtu.setId(rs.getInt("idMaterialUsar"));
-                mtu.setIdMaterial(rs.getInt("idMaterial"));
-                mtu.setIdDetalleOrden(rs.getInt("idDetalleOrden"));
-                mtu.setIdUnidadMedida(rs.getInt("idUnidadMedida"));
+                mtu.setId(rs.getInt("idMaterialUsar"));                
+                mtu.setMaterial(rs.getString("Material"));
+                mtu.setIdDetalleOrden(rs.getInt("idDetalleOrden"));                
+                mtu.setUnidadMedida(rs.getString("UnidadMedida"));
                 mtu.setCaracteristicas(rs.getString("CaracteristicasMaterial"));
                 mtu.setCantidad(rs.getInt("Cantidad"));
                 mtu.setPrecio(rs.getFloat("Precio"));
@@ -39,7 +42,7 @@ public class MaterialUsarDAO implements CRUDMaterialUsar{
                 list.add(mtu);
             }
         }catch(Exception e){
-            
+            System.out.println("Error al mostrar" +e.getMessage());
         }
         return list;
     }

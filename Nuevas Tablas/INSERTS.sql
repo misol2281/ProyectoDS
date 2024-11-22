@@ -37,7 +37,13 @@ INSERT INTO Opciones (Opcion) VALUES
 	('Gestionar Opciones');
 
 INSERT INTO AsignacionRolesOpciones (idRol, idOpcion) VALUES
-	('');
+	 (8, 4), -- Gestionar DetalleOrden
+    (8, 7), -- Gestionar Material
+    (8, 8); -- Gestionar MaterialUsar
 
 INSERT INTO Usuarios (Usuario, Contra, idRol, idEmpleado) VALUES
-	('');
+	('grnMaria', 'mari123', '2', '3'),
+	('rrhhCarlos','carlos456','3','4'),
+	('atcAna','ana789','4','5'),
+	('ctrLuis','luis123','5','6'),
+	('dsrSofia','sofi256','6','7');

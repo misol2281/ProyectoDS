@@ -33,14 +33,16 @@ public class CargoDAO implements CRUDCargo {
                 list.add(car);
             }
         }catch (Exception e){
-            
+            System.out.println("Error al listar"+e.getMessage());        
         }
         return list;
     }
 
+    
+    
     @Override
     public Cargo list(int id) {
-        String sql = "Select * from Cargo where idCargo="+id;
+        String sql = "Select * from Cargos where idCargo="+id;
         try{
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -50,7 +52,7 @@ public class CargoDAO implements CRUDCargo {
                 c.setCargo(rs.getString("Cargo"));
             }
         }catch(Exception e){
-            
+            System.out.println("Error al mostrar" +e.getMessage());
         }
         return c;
     }
@@ -63,7 +65,7 @@ public class CargoDAO implements CRUDCargo {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         }catch(Exception e){
-            
+            System.out.println("Error al agregar Material" +e.getMessage());
         }
         return false;
     }
@@ -74,7 +76,7 @@ public class CargoDAO implements CRUDCargo {
         try{
            con = cn.getConnection();
            ps = con.prepareStatement(sql);
-           ps.executeUpdate(); 
+           ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -82,14 +84,14 @@ public class CargoDAO implements CRUDCargo {
     }
 
     @Override
-    public boolean eliinar(int id) {
+    public boolean eliminar(int id) {
        String sql = "delete from Cargos where idCargo="+id;
        try{
            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
        }catch(Exception e){
-           
+           System.out.println("Error al eliminar"+e.getMessage());
        }
        return false;
     }
