@@ -22,6 +22,7 @@
             <a href="ControladorMaterial?accion=listar">Lista de Materiales</a>
             <br>
             <a href="ControladorUnidadMedida?accion=listar">Lista de UnidadMedida</a>
+            <a href="menu.jsp">Menu</a>
         </div>
     </body>
 </html>
