@@ -26,7 +26,7 @@
         <div class="container" >
             <h1 class="text-center">Lista de Cargos</h1>
             <div class="noimpp">
-                <a class="btn btn-primary" href="index.jsp">Regresar a Menu</a>
+                <a class="btn btn-primary" href="menu.jsp">Regresar a Menu</a>
                 <a class="btn btn-primary" href="ControladorCargo?accion=add">Agregar Cargo</a>
                 <button class="btn btn-primary" onclick="javascript:window.print()">Informe</button>
             </div>
