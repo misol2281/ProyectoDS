@@ -15,6 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        
     </head>
     <body>
         <div>
@@ -44,7 +45,6 @@
                     <td><%= er.getEstiloRopa() %></td>
                     <td><%= er.getDescripcion() %></td>
                     <td>
-                        
                         <a href="CtrlEstiloRopa?accion=EditarEstiloRopa&id=<%= er.getId()%>">Editar</a>
                         <a href="CtrlEstiloRopa?accion=EliminarEstiloRopa&id=<%= er.getId()%>">Eliminar</a>
                     </td>

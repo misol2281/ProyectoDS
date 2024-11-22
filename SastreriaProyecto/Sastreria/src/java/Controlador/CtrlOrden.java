@@ -26,7 +26,7 @@ import java.util.Date;
 @WebServlet(name = "CtrlOrden", urlPatterns = {"/CtrlOrden"})
 public class CtrlOrden extends HttpServlet {
 
-    String listar = "vistas/vistaOrden/listarOrden.jsp";
+    String listar = "vistas/vistaOrden/ListarOrden.jsp";
     String editar = "vistas/vistaOrden/editarOrden.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -88,7 +88,6 @@ public class CtrlOrden extends HttpServlet {
                 DAOOrden dao = new DAOOrden();
                 Orden o = new Orden();
                 o = dao.BuscarPorId(id);
-                System.out.println("valor: "+o.getIdCliente() + o.getMontoTotal());
                 if(o!=null){
                    request.setAttribute("id", o.getId()); 
                    request.setAttribute("idCliente",o.getIdCliente());

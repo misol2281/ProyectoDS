@@ -10,7 +10,7 @@ import java.util.List;
 public interface InterfaceDetalleOrden {
     public List<DetalleOrden> listarDetOrden();
     public boolean agregarDetOrden(DetalleOrden dO);
-    public boolean buscarPorId(int id);
+    public DetalleOrden buscarPorId(int id);
     public boolean eliminarDetOrden(int id);
     public boolean actualizarDetOrden(DetalleOrden dO);
 }

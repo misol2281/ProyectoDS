@@ -1,9 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="Modelo.ClienteDAO"%>
-<%@page import="Entidad.Cliente"%>
-<%@page import="Modelo.EmpleadoDAO"%>
-<%@page import="Entidad.Empleados"%>
+<%@page import="Modelo.DAOEstiloRopa"%>
+<%@page import="Entidad.EstiloRopa"%>
+<%@page import="Modelo.DAOTipoTrabajo"%>
+<%@page import="Entidad.TipoTrabajo"%>
+<%@page import="Modelo.DAOOrden"%>
+<%@page import="Entidad.Orden"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,38 +18,59 @@
 
 <div id="agregar" class="agregar">
     <div class="contenedorAgregar">
-        <span class="btnCerrar" id="cerrarAgregar">&times;</span>
         <h2>Formulario de Registro</h2>
-        <form id="formAgregar" action="../../CtrlOrden" method="POST">
-            <label for="Cliente">Cliente:</label>
-            <input list="lsClientes" id="cliente" name="cliente" placeholder="Escribe para ver sugerencias">
-            <datalist id="lsClientes">
+        <form id="formAgregar">
+            <input type="hidden" id="id" name="id" value="<%= request.getAttribute("id") %>">
+            <label for="ER">Estilo Ropa:</label>
+            <input list="lsER" id="ER" name="ER" placeholder="Escribe para ver sugerencias">
+            <datalist id="lsER">
                 <%
-                    ClienteDAO daoC = new ClienteDAO();
-                    List<Cliente> listC = daoC.listar();
-                    if (listC != null && !listC.isEmpty()) {
-                        for (Cliente c : listC) {
+                    DAOEstiloRopa daoER = new DAOEstiloRopa();
+                    List<EstiloRopa> listER = daoER.listarEstiloRopa();
+                    if (listER != null && !listER.isEmpty()) {
+                        for (EstiloRopa er : listER) {
                 %>
-                    <option value="<%= c.getNombre() %> <%= c.getApellido() %>" data-id="<%= c.getId() %>"></option>
+                    <option value="<%= er.getEstiloRopa() %>" data-id="<%= er.getId() %>"></option>
                 <%  
                         }
                     }
                 %>
             </datalist><br><br>
 
-            <!-- Campo oculto para ID del cliente -->
-            <input type="hidden" id="idCliente" name="idCliente" value="<%= request.getAttribute("idCliente") %>">
+            
+            <input type="hidden" id="idEstiloRopa" name="idEstiloRopa" value="<%= request.getAttribute("idER") %>">
 
-            <label for="Empleado">Empleado:</label>
-            <input list="lsEmpleados" id="empleado" name="empleado" placeholder="Escribe para ver sugerencias">
-            <datalist id="lsEmpleados">
+            <label for="TT">Tipo Trabajo:</label>
+            <input list="lsTT" id="TT" name="TT" placeholder="Escribe para ver sugerencias">
+            <datalist id="lsTT">
                 <%
-                    EmpleadoDAO daoE = new EmpleadoDAO();
-                    List<Empleados> listE = daoE.listar();
-                    if (listE != null && !listE.isEmpty()) {
-                        for (Empleados em : listE) {
+                    DAOTipoTrabajo daott = new DAOTipoTrabajo();
+                    List<TipoTrabajo> listt = daott.listarTipoTrabajos();
+                    if (listt != null && !listt.isEmpty()) {
+                        for (TipoTrabajo tt : listt) {
                 %>
-                    <option value="<%= em.getNombre() %> <%= em.getApellido() %>"data-id="<%= em.getId() %>"></option>
+                    <option value="<%= tt.getTipoTrabajo() %> "data-id="<%= tt.getId() %>"></option>
+                <%  
+                        }
+                    }
+                    
+                %>
+            </datalist><br><br>
+
+            
+            <input type="hidden" id="idTipoTrabajo" name="idTipoTrabajo" value="<%= request.getAttribute("idTT") %>">
+
+
+            <label for="orden">Orden:</label>
+            <input list="lsOrden" id="orden" name="orden" placeholder="Escribe para ver sugerencias">
+            <datalist id="lsOrden">
+                <%
+                    DAOOrden daoO = new DAOOrden();
+                    List<Orden> listO = daoO.listarOrden();
+                    if (listO != null && !listO.isEmpty()) {
+                        for (Orden o : listO) {
+                %>
+                    <option value="<%= o.getId() %>"></option>
                 <%  
                         }
                     }
@@ -58,21 +81,19 @@
             </datalist><br><br>
 
             <!-- Campo oculto para ID del empleado -->
-            <input type="hidden" id="idEmpleado" name="idEmpleado" value="<%= request.getAttribute("idEmpleado") %>">
-            <input type="hidden" id="id" name="id" value="<%= request.getAttribute("id") %>">
-            <label for="fechaOrden">Fecha Orden:</label>
-            <input type="date" id="fechaOrden" name="fechaOrden" value="<%= request.getAttribute("fechaOrden") %>">
+            <input type="hidden" id="idO" name="idO" value="<%= request.getAttribute("idO") %>">
+            
+            <label for="instrucciones">Instrucciones:</label>
+            <input type="input" id="instrucciones" name="instrucciones" value="<%= request.getAttribute("instrucciones") %>">
 
-            <label for="fechaEntrega">Fecha Entrega:</label>
-            <input type="date" id="fechaEntrega" name="fechaEntrega" value="<%= request.getAttribute("fechaEntrega") %>">
+            <label for="subTotal">Sub Total:</label>
+            <input type="input" id="subTotal" name="subTotal" value="<%= request.getAttribute("subTotal") %>">
 
-            <label for="monto">Monto Total:</label>
-            <input type="text" id="monto" name="monto" value="<%= request.getAttribute("monto") %>">
-
-            <button type="submit" id="btnAgregar">Agregar</button>
+            <button type="submit" id="btnAgregar" name="accion" value="Actualizar">Actualizar</button>
         </form>
     </div>
 </div>
+
 </body>
-<script src="script/scriptOrden/EditarOrden.js"></script>
+<script src="/Sastreria/script/scriptDetOrden/EditarDetOrden.js"></script>
 </html>

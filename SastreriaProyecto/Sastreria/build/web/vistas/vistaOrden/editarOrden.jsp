@@ -74,5 +74,5 @@
     </div>
 </div>
 </body>
-<script src="script/scriptOrden/EditarOrden.js"></script>
+<script src="/Sastreria/script/scriptOrden/EditarOrden.js"></script>
 </html>

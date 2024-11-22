@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tipo de Trabajos</title>
-        <link rel="stylesheet" href="css/estiloListar.css">
+        <link rel="stylesheet" href="/Sastreria/css/estiloListar.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
@@ -68,5 +68,5 @@
             </table>
         </div>
     </body>
-    <script src="script/scriptTipoTrabajo/TipoTrabajo.js"></script>
+    <script src="/Sastreria/script/scriptTipoTrabajo/TipoTrabajo.js"></script>
    </html>

@@ -45,6 +45,7 @@ public class DAODetalleOrden implements InterfaceDetalleOrden {
             rs = ps.executeQuery();
             while(rs.next()){
                 DetalleOrden d = new DetalleOrden();
+                d.setId(rs.getInt("idDetalleOrden"));
                 d.setIdEstiloRopa(rs.getInt("idEstiloRopa"));
                 d.setIdTipoTrabajo(rs.getInt("idTipoTrabajo"));
                 d.setEstiloRopa(rs.getString("EstiloRopa"));
@@ -63,39 +64,85 @@ public class DAODetalleOrden implements InterfaceDetalleOrden {
     @Override
     public boolean agregarDetOrden(DetalleOrden dO) {
         String sql = "insert into DetalleOrden (idEstiloRopa, idTipoTrabajo, idOrden, Instrucciones,"
-        + "SubTotal) into(?,?,?,?,?)";
+        + "SubTotal) values(?,?,?,?,?)";
         try{
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, dO.getIdEstiloRopa());
-            ps.setInt(2, dO.getIdTipoTrabajo());
-            ps.setInt(3, dO.getIdOrden());
-            ps.setString(4, dO.getInstrucciones());
-            ps.setFloat(5, dO.getSubTotal());
-            int agregado = ps.executeUpdate();
-            if(agregado>0){
-                System.out.println("Se agrego con exito");
-                return true;
-            }
+        con = conexion.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, dO.getIdEstiloRopa());
+        ps.setInt(2, dO.getIdTipoTrabajo());
+        ps.setInt(3, dO.getIdOrden());
+        ps.setString(4, dO.getInstrucciones());
+        ps.setFloat(5, dO.getSubTotal());
+        int agregado = ps.executeUpdate();
+        return agregado > 0;
+        } catch (SQLException e) {
+            System.out.println("Error al agregar Detalle Orden: " + e.getMessage());
+            return false;
         }
-        catch(SQLException e){
-            System.out.println("Error al agregar Detalle Orden "+e.getMessage());
-        }
-        return false;
+
     }
 
     @Override
-    public boolean buscarPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public DetalleOrden buscarPorId(int id) {
+        String sql = "select * from DetalleOrden where idDetalleOrden ="+ id;
+        DetalleOrden dO = new DetalleOrden();
+        try{
+            con = conexion.getConnection();
+            ps = con.prepareCall(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+  
+                dO.setId(id);
+                dO.setIdEstiloRopa(rs.getInt("idEstiloRopa"));
+                dO.setIdTipoTrabajo(rs.getInt("idTipoTrabajo"));
+                dO.setIdOrden(rs.getInt("idOrden"));
+                dO.setInstrucciones(rs.getString("Instrucciones"));
+                dO.setSubTotal(rs.getFloat("SubTotal"));
+                
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Error al buscar: "+e.getMessage());
+        }
+        return dO;
     }
 
     @Override
     public boolean eliminarDetOrden(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "delete from DetalleOrden where idDetalleOrden =" + id;
+        try{
+            con = conexion.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }
+        catch(SQLException e){
+            System.out.println("Error al eliminar" + e.getMessage());
+            }
+        return false;
     }
 
     @Override
     public boolean actualizarDetOrden(DetalleOrden dO) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    String sql = "UPDATE DetalleOrden SET idEstiloRopa = ?, idTipoTrabajo = ?, idOrden = ?, Instrucciones = ?, SubTotal = ? WHERE idDetalleOrden = ?";
+    try (Connection con = conexion.getConnection(); 
+         PreparedStatement ps = con.prepareStatement(sql)) {
+         
+        ps.setInt(1, dO.getIdEstiloRopa());
+        ps.setInt(2, dO.getIdTipoTrabajo());
+        ps.setInt(3, dO.getIdOrden());
+        ps.setString(4, dO.getInstrucciones());
+        ps.setFloat(5, dO.getSubTotal());
+        ps.setInt(6, dO.getId());
+
+        int filasEditadas = ps.executeUpdate();
+        return filasEditadas > 0;
+
+    } catch (SQLException e) {
+        System.out.println("Error al actualizar: " + e.getMessage());
+        e.printStackTrace();
     }
+    return false;
+}
+
     
 }

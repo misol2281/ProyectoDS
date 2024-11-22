@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Entidad.DetalleOrden;
 import Entidad.Orden;
+import Modelo.DAODetalleOrden;
 import Modelo.DAOOrden;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
@@ -37,9 +39,13 @@ public class CtrlDetOrden extends HttpServlet {
             out.println("<title>Servlet CtrlDetOrden</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CtrlDetOrden at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Procesando...</h1>");
             out.println("</body>");
+            out.println("<script>");
+            out.println("  window.location.href = \"vistas/vistaDetOrden/ListarDetOrden.jsp\";");
+            out.println("</script>");
             out.println("</html>");
+
         }
     }
 
@@ -56,9 +62,10 @@ public class CtrlDetOrden extends HttpServlet {
             int id = 0;
             try {
                 id = Integer.parseInt(request.getParameter("id"));
+                System.out.println("id: "+id);
                 if (id > 0) {
-                    DAOOrden dao = new DAOOrden();
-                    boolean eliminado = dao.EliminarOrden(id);
+                    DAODetalleOrden dao = new DAODetalleOrden();
+                    boolean eliminado = dao.eliminarDetOrden(id);
 
                     if (eliminado) {
                         System.out.println("Dato eliminado correctamente.");
@@ -77,17 +84,17 @@ public class CtrlDetOrden extends HttpServlet {
         else if(action.equalsIgnoreCase("Enviar")){
             try{
                 int id = Integer.parseInt(request.getParameter("id"));
-                DAOOrden dao = new DAOOrden();
-                Orden o = new Orden();
-                o = dao.BuscarPorId(id);
-                System.out.println("valor: "+o.getIdCliente() + o.getMontoTotal());
-                if(o!=null){
-                   request.setAttribute("id", o.getId()); 
-                   request.setAttribute("idCliente",o.getIdCliente());
-                   request.setAttribute("idEmpleado", o.getIdEmpleado());
-                   request.setAttribute("fechaOrden", o.getFechaOrden());
-                   request.setAttribute("fechaEntrega", o.getFechaEntrega());
-                   request.setAttribute("monto", o.getMontoTotal());
+                DAODetalleOrden dao = new DAODetalleOrden();
+                DetalleOrden dO = new DetalleOrden();
+                dO = dao.buscarPorId(id);
+                
+                if(dO!=null){
+                   request.setAttribute("id", dO.getId()); 
+                   request.setAttribute("idER",dO.getIdEstiloRopa());
+                   request.setAttribute("idTT", dO.getIdTipoTrabajo());
+                   request.setAttribute("idO", dO.getIdOrden());
+                   request.setAttribute("instrucciones", dO.getInstrucciones());
+                   request.setAttribute("subTotal", dO.getSubTotal());
                    acceso = editar; 
                 }
             }
@@ -95,29 +102,28 @@ public class CtrlDetOrden extends HttpServlet {
                 System.out.println("Error al enviar registro");
             }
         }
-        
-        else if (action.equalsIgnoreCase("Editar")){
-            int id = Integer.parseInt(request.getParameter("id"));
-            int idCliente = Integer.parseInt(request.getParameter("idCliente"));
-            int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        else if(action.equalsIgnoreCase("Actualizar")){
             try{
-            Date fechaOrden = sdf.parse(request.getParameter("fechaOrden"));
-            Date fechaEntrega = sdf.parse(request.getParameter("fechaEntrega"));
-            float montoTotal = Float.parseFloat(request.getParameter("monto"));
-            DAOOrden dao = new DAOOrden();
-            Orden o = new Orden();
-            o.setId(id);
-            o.setIdCliente(idCliente);
-            o.setIdEmpleado(idEmpleado);
-            o.setFechaOrden(fechaOrden);
-            o.setFechaEntrega(fechaEntrega);
-            o.setMontoTotal(montoTotal);
-            dao.EditarOrden(o);
-        }catch(NumberFormatException | ParseException e){
-            System.out.println("Error al pasar dato: "+e.getMessage());
-        }
-            acceso = listar;
+            int idER = Integer.parseInt(request.getParameter("idEstiloRopa"));
+            int idTT = Integer.parseInt(request.getParameter("idTipoTrabajo"));
+            int idO = Integer.parseInt(request.getParameter("idO"));
+            String ins = request.getParameter("instrucciones");
+            float subTotal = Float.parseFloat(request.getParameter("subTotal"));
+            DAODetalleOrden dao = new DAODetalleOrden();
+            DetalleOrden dO = new DetalleOrden();
+            dO.setIdEstiloRopa(idER);
+            dO.setIdTipoTrabajo(idTT);
+            dO.setIdOrden(idO);
+            dO.setInstrucciones(ins);
+            dO.setSubTotal(subTotal);
+            boolean actualizarDetOrden = dao.actualizarDetOrden(dO);
+            if(!actualizarDetOrden){
+                System.out.println("No se actualizo correctamente");        
+            }
+            }catch(NumberFormatException e){
+                System.out.println("Error al pasar dato: "+e.getMessage());
+
+            }
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
             vista.forward(request, response);
@@ -128,24 +134,30 @@ public class CtrlDetOrden extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
-        int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                
         try{
-        Date fechaOrden = sdf.parse(request.getParameter("fechaOrden"));
-        Date fechaEntrega = sdf.parse(request.getParameter("fechaEntrega"));
-        float montoTotal = Float.parseFloat(request.getParameter("monto"));
-        DAOOrden dao = new DAOOrden();
-        Orden o = new Orden();
-        o.setIdCliente(idCliente);
-        o.setIdEmpleado(idEmpleado);
-        o.setFechaOrden(fechaOrden);
-        o.setFechaEntrega(fechaEntrega);
-        o.setMontoTotal(montoTotal);
-        dao.AgregarOrden(o);
-        }catch(NumberFormatException | ParseException e){
-            System.out.println("Error al pasar dato: "+e.getMessage());
+        int idER = Integer.parseInt(request.getParameter("idEstiloRopa"));
+        int idTT = Integer.parseInt(request.getParameter("idTipoTrabajo"));
+        int idO = Integer.parseInt(request.getParameter("idO"));
+        String ins = request.getParameter("instrucciones");
+        float subTotal = Float.parseFloat(request.getParameter("subTotal"));
+        DAODetalleOrden dao = new DAODetalleOrden();
+        DetalleOrden dO = new DetalleOrden();
+        dO.setIdEstiloRopa(idER);
+        dO.setIdTipoTrabajo(idTT);
+        dO.setIdOrden(idO);
+        dO.setInstrucciones(ins);
+        dO.setSubTotal(subTotal);
+        boolean agregarDetOrden = dao.agregarDetOrden(dO);
+        if(!agregarDetOrden){
+            System.out.println("No se agrego correctamente");        
         }
+        }catch(NumberFormatException e){
+            System.out.println("Error al pasar dato: "+e.getMessage());
+            
+        }
+        response.sendRedirect("../vistas/vistaDetOrden/ListarDetOrden.jsp");
+
     }
 
     

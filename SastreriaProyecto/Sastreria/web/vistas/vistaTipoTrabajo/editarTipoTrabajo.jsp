@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estiloEditar.css">
+    <link rel="stylesheet" href="/Sastreria/css/estiloEditar.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Actualizar Registro</title>
@@ -27,5 +27,5 @@
         </div>
     </div>
 </body>
-<script src="script/scriptTipoTrabajo/TipoTrabajo.js"></script>
+<script src="/Sastreria/script/scriptTipoTrabajo/TipoTrabajo.js"></script>
 </html>
