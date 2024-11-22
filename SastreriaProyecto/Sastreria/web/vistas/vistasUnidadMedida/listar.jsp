@@ -26,7 +26,7 @@
         <div class="container">
             <h1 class="text-center">Lista Unidad de Medida</h1>
             <div class="noprint">
-            <a class="btn btn-primary" href="index.jsp">Regresar al Menu</a>
+            <a class="btn btn-primary" href="menu.jsp">Regresar al Menu</a>
             <a class="btn btn-primary" href="ControladorUnidadMedida?accion=add">Agregar Unidad de Medida</a>
             <button class="btn btn-primary" onclick="javascript:window.print()">Informe</button>
             </div>
