@@ -29,7 +29,8 @@
                 }
             }
             
-        </style>   
+        </style>
+        
     </head>
     <body>
         <button class="button btn btn-primary" onclick="javascript: window.print()">Informe</button>

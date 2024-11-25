@@ -19,8 +19,8 @@ import java.util.List;
 public class ControladorCargo extends HttpServlet {
     
     String listar = "vistas/vistasCargo/listar.jsp";
-    String add = "vistas/vistasCargo/add.jsp";
-    String edit = "vistas/vistasCargo/edit.jsp";
+    String add = "/Sastreria/vistas/vistasCargo/add.jsp";
+    String edit = "/Sastreria/vistas/vistasCargo/edit.jsp";
     int id;
     Cargo c = new Cargo();
     CargoDAO cdao = new CargoDAO();

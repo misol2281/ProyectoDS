@@ -46,7 +46,7 @@
                         <a href="#" class="dashboard-nav-dropdown-item">Estilo de Ropa</a>
                         <a href="ControladorMaterial?accion=listar" class="dashboard-nav-dropdown-item">Material</a>
                         <a href="ControladorMaterialUsar?accion=listar" class="dashboard-nav-dropdown-item">Material a Usar</a>
-                        <a href="#" class="dashboard-nav-dropdown-item"> Tipo Trabajo</a>
+                        <a href="CtrlTipoTrabajo?accion=listar" class="dashboard-nav-dropdown-item"> Tipo Trabajo</a>
                     </div>
                 </div>
                 <div class='dashboard-nav-dropdown'>
