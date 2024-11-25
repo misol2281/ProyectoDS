@@ -15,7 +15,7 @@
             <div class="navbar">
                 <a href="#home" class="logo">Sastrería El Arte del Traje</a>
                 <ul>
-                    <li><a href="index.jsp">Inicio</a></li>
+                    <li><a href="menu.jsp">Inicio</a></li>
 
                 </ul>
             </div>

@@ -119,7 +119,27 @@ public class CtrlUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String usuario = request.getParameter("usuario");
+        String contra = request.getParameter("contra");
+        int idRol = 0;
+        int idEmpleado = 0;
+        idRol = Integer.parseInt(request.getParameter("idRol"));
+        idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
+        if (usuario == null || contra == null || idRol == 0 || idEmpleado==0) {
+            System.out.println("Recibo datos null");
+        }
+        DAOUsuario dao = new DAOUsuario();
+        Usuario u = new Usuario();
+        u.setUsuario(usuario);
+        u.setContrasenia(contra);
+        u.setIdRol(idRol);
+        u.setIdEmpleado(idEmpleado);
+        boolean r = dao.registrarUsuario(u);
+        if(r){
+            System.out.println("Usuario agregado exitosamente");
+        }else{
+            System.out.println("Error al registrar usuario");
+        }
     }
 
     /**

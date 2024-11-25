@@ -5,33 +5,49 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@page import="java.util.List"%>
 <%@page import="Modelo.DAOEstiloRopa"%>
 <%@page import="Entidad.EstiloRopa"%>
-=======
->>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9
+
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
         <title>Estilo de Ropa</title>
+        <script>
+            function imprimir(){
+                window.print();
+            }
+        </script>
+        <style>
+            @media print{
+                .noimpr, .accion, .noimprimir{
+                    display:none;
+                }
+            }
+        </style>
     </head>
     <body>
-        <h1>Estilo de Ropa</h1>
-        <table border="1">
+        <div class="container">
+            <h1 class="text-center">Estilo de Ropa</h1>
+        <div class="noimpr">
+            <a class="btn btn-primary" href="menu.jsp">Regresar a Menu</a>            
+            <a class="btn btn-primary" href="ControladorCliente?accion=add">Agregar Cliente</a>
+            <button class="button btn btn-primary" onclick="javascript:window.print()">Informe</button>
+        </div>
+            <table class="table table-bordered">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>Estilo de Ropa</th>
                     <th>Descripcion</th>
-                    <th>Acciones</th>
+                    <th class="accion">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <%
                     DAOEstiloRopa dao = null;
-                    List<Estilo de Ropa> list = null;
+                    List<EstiloRopa> list = null;
                     try {
                         dao = new DAOEstiloRopa();
                         list = dao.listarEstiloRopa();
@@ -44,11 +60,11 @@
                         } else {
                             for (EstiloRopa er : list) {
                 %>
-                <tr>
-                    <td><%= m.getEstiloRopa() %></td>
-                    <td><%= m.getDescripcion() %></td>
+                <tr class="text-center">
+                    <td><%= er.getEstiloRopa() %></td>
+                    <td><%= er.getDescripcion() %></td>
                     <td>
-                        <button>Eliminar</button>
+                        <button class="btn btn-outline-primary">Eliminar</button>
                     </td>
                 </tr>
                 <%
@@ -61,13 +77,8 @@
                 %>
             </tbody>
         </table>
+        </div>
     </body>
 </html>
-=======
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
->>>>>>> 8410303f6a2e6fe26e11ac46ff2dfed54e982fb9
+        
+

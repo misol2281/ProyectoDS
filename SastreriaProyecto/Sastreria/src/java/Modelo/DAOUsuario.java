@@ -10,6 +10,7 @@ import Interfaces.InterfaceUsuario;
 import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class DAOUsuario implements InterfaceUsuario{
     Conexion cn = new Conexion();
@@ -42,29 +43,51 @@ public class DAOUsuario implements InterfaceUsuario{
     }
     
     public Usuario validarUsuario(String usu, String contra) {
-        String sql = "SELECT * FROM Usuarios WHERE Usuario = ? AND Contra = ?";
-        try{
-            con = cn.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setString(1, usu);
-            ps.setString(2, contra);
-            ResultSet rs = ps.executeQuery();
+    String sql = "SELECT * FROM Usuarios WHERE Usuario = ?";
+    try {
+        con = cn.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1, usu);
+        ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
+        if (rs.next()) {
+            
+            String hashedPassword = rs.getString("Contra");
+            if (BCrypt.checkpw(contra, hashedPassword)) {
                 Usuario usuario = new Usuario();
                 usuario.setIdUsuario(rs.getInt("idUsuario"));
                 usuario.setUsuario(rs.getString("Usuario"));
-                usuario.setContrasenia(rs.getString("Contra"));
-                usuario.setIdEmpleado(rs.getInt("idRol"));
-                usuario.setIdRol(rs.getInt("idEmpleado"));
+                usuario.setIdEmpleado(rs.getInt("idEmpleado")); // Corregido
+                usuario.setIdRol(rs.getInt("idRol")); // Corregido
                 return usuario;
             }
-        } catch (SQLException e) {
-            System.out.println("Error al validar usuario: " + e.getMessage());
         }
         return null;
-    }
+    } catch (SQLException e) {
+        System.err.println("Error al validar usuario: " + e.getMessage());
+        return null;
+    } 
+}
 
+    public boolean registrarUsuario(Usuario u) {
+        
+
+        try {
+            con = cn.getConnection();
+            String hashedPassword = BCrypt.hashpw(u.getContrasenia(), BCrypt.gensalt());
+            String sql = "INSERT INTO Usuarios (Usuario, Contra, idRol, idEmpleado) VALUES (?, ?, ?, ?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, u.getUsuario());
+            ps.setString(2, hashedPassword);
+            ps.setInt(3, u.getIdRol());
+            ps.setInt(4, u.getIdEmpleado());
+            int registrado = ps.executeUpdate();
+            return registrado > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
   
     @Override
     public  Usuario list(int id) {

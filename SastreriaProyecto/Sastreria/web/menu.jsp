@@ -20,7 +20,7 @@
                 <a href="#" class="brand-logo"><i class="fas fa-anchor"></i> <span>Sastreria</span></a>
             </header>
             <nav class="dashboard-nav-list">
-                <a href="menu.jps" class="dashboard-nav-item"><i class="fas fa-home"></i> Home </a>
+                <a href="menu.jsp" class="dashboard-nav-item"><i class="fas fa-home"></i> Home </a>
                 <a href="#" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Perfil</a>
                 
                 <div class='dashboard-nav-dropdown'>
@@ -29,21 +29,21 @@
                         <a href="ControladorCargo?accion=listar" class="dashboard-nav-dropdown-item">Cargos</a>
                         <a href="ControladorEmpleado?accion=listar" class="dashboard-nav-dropdown-item">Empleados</a>
                         <a href="ControladorRoles?accion=listar" class="dashboard-nav-dropdown-item">Roles</a>                        
-                        <a href="#" class="dashboard-nav-dropdown-item">Usuarios</a>
+                        <a href="CtrlUsuario?accion=listar" class="dashboard-nav-dropdown-item">Usuarios</a>
                     </div>
                 </div>
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-users"></i> Ordenes </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#" class="dashboard-nav-dropdown-item">Orden</a>
-                        <a href="#" class="dashboard-nav-dropdown-item">Detalle Orden</a>
+                        <a href="CtrlOrden?accion=listar" class="dashboard-nav-dropdown-item">Orden</a>
+                        <a href="CtrlDetOrden?accion=listar" class="dashboard-nav-dropdown-item">Detalle Orden</a>
                         <a href="ControladorCliente?accion=listar" class="dashboard-nav-dropdown-item">Clientes</a>                        
                     </div>
                 </div>
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-money-check-alt"></i> Elaboracion </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#" class="dashboard-nav-dropdown-item">Estilo de Ropa</a>
+                        <a href="CtrlEstiloRopa?accion=listar" class="dashboard-nav-dropdown-item">Estilo de Ropa</a>
                         <a href="ControladorMaterial?accion=listar" class="dashboard-nav-dropdown-item">Material</a>
                         <a href="ControladorMaterialUsar?accion=listar" class="dashboard-nav-dropdown-item">Material a Usar</a>
                         <a href="CtrlTipoTrabajo?accion=listar" class="dashboard-nav-dropdown-item"> Tipo Trabajo</a>
@@ -52,15 +52,15 @@
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-money-check-alt"></i> Medidas </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#" class="dashboard-nav-dropdown-item">Medida</a>
-                        <a href="#" class="dashboard-nav-dropdown-item">Tipo de Medida</a>
+                        <a href="CtrlMedida?accion=listar" class="dashboard-nav-dropdown-item">Medida</a>
+                        <a href="CtrlTipoMedida?accion=listar" class="dashboard-nav-dropdown-item">Tipo de Medida</a>
                         <a href="ControladorUnidadMedida?accion=listar" class="dashboard-nav-dropdown-item">Unidad de Medida</a>
                     </div>
                 </div>
                 <a href="about.jsp" class="dashboard-nav-item"><i class="fas fa-cogs"></i> About </a>
                 <a href="#" class="dashboard-nav-item"><i class="fas fa-user"></i> Contact </a>
                 <div class="nav-item-divider"></div>
-                <a href="#" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+                <a href="index.jsp" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
             </nav>
         </div>
         <div class='dashboard-app'>
